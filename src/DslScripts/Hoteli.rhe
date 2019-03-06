@@ -1,0 +1,115 @@
+Module Hoteli
+{
+  Entity  Hotel
+  {
+      ShortString NazivHotela { Required; }
+      ShortString AdresaHotela { Required; }
+  } 
+
+  Entity TipSobe
+  {
+      ShortString NazivTipa;
+      Decimal CijenaTipa;
+      ItemFilter NazivMisspelled 'item => item.NazivTipa.Contains("Penthaus")';
+    //   InvalidData CommonMisspelled 'Ne moze se unijeti pogresno napisana rijec "penthaus".';
+  }
+
+
+  SqlQueryable HotelRezervacijeZaSobu
+  "
+      SELECT 
+        s.ID,
+        BrojRezervacija = COUNT(r.ID)    
+      FROM Hoteli.Soba s
+      INNER JOIN Hoteli.Rezervacija r ON r.SobaID = s.ID
+      GROUP BY
+        s.ID
+  " 
+  {
+      Extends Hoteli.Hotel;
+      Integer BrojRezervacija;
+
+      AutodetectSqlDependencies;
+  }
+
+  Entity Soba
+  {
+      ShortString NazivSobe;
+      Reference Hotel;
+      Reference TipSobe;
+      Extends HotelRezervacijeZaSobu;
+  }
+  Entity Gost
+  {
+      Logging { Allproperties;}
+      ShortString Ime { Required; }
+      ShortString Prezime { Required; }
+      ShortString Telefon {  Required; }
+      ShortString Email { RegExMatch "[-\.\w]+@[-\.\w]+" ;}
+  }
+
+  Entity GostPrijatelj
+  {
+      Extends Hoteli.Gost;
+      ShortString KodPopust;
+  }
+
+  Entity GostPoslovno
+  {
+      Extends Hoteli.Gost;
+      ShortString Pozicija;
+  }
+
+  Entity Rezervacija
+  {
+      Datetime VrijemeOd;
+      Datetime VrijemeDo;
+      Reference Soba;
+
+      ItemFilter VrijemeOdPrijeVrijemeDo 'item => item.VrijemeOd != null && item.VrijemeDo.Value < item.VrijemeOd.Value';
+
+      Logging
+      {
+          Log Hoteli.Rezervacija.Soba;
+      }
+  }
+  Browse RezervacijaGrid Hoteli.Rezervacija
+  {
+      Take VrijemeOd;
+      Take VrijemeDo;
+      Take 'Soba.NazivSobe';
+  }
+  
+  Browse HotelGrid Hoteli.Soba
+  {
+      Take  NazivSobe;
+      Take 'Hotel.NazivHotela';
+      Take 'Extension_HotelRezervacijeZaSobu.BrojRezervacija';
+  }
+
+  Entity GostRezervacija
+  {
+      Reference Rezervacija;
+      Reference Gost;
+  }
+
+  Entity Racun
+  {
+      Decimal Iznos {Required;}
+      Integer Popust {MinValue 1; MaxValue 20; }
+      Bool Placeno;
+      Reference Rezervacija;
+  }
+  Entity Usluga
+  {
+      ShortString NazivUsluge { DefaultValue 'item => "Sauna"'; }
+      Decimal CijenaUsluge;
+  }
+  Entity Stavka
+  {
+      ShortString BrojStavke{ AutoCode;}
+      ShortString NazivStavke;
+      Reference Usluga;
+      Reference Racun;
+  }
+}
