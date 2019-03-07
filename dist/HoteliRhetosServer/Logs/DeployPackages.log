@@ -1,0 +1,752 @@
+2019-03-05 15:57:46.5172|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-05 15:57:46.5641|TRACE|DeployPackages|Getting packages.
+2019-03-05 15:57:46.5797|ERROR|DeploymentConfiguration|No packages defined in 'RhetosPackages.config'. Edit the new file to set which Rhetos packages will be deployed. Note that removing a Rhetos package from the file will uninstall the package.
+2019-03-05 15:57:46.5953|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Hoteli\dist\HoteliRhetosServer.
+2019-03-05 15:57:46.6213|TRACE|DeployPackages|Loading plugins.
+2019-03-05 15:57:46.8147|TRACE|DeployPackages|SQL connection: DataSource=localhost, InitialCatalog=Hoteli
+2019-03-05 15:57:56.9261|ERROR|MsSqlExecuter|Could not connect to server 'localhost', database 'Hoteli' using integrated security account sbmatic. System.Data.SqlClient.SqlException (0x80131904): Cannot open database "Hoteli" requested by the login. The login failed.
+Login failed for user 'OS\sbmatic'.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Rhetos.Persistence.MsSqlExecuter.SafeExecuteCommand(Action`1 action, Boolean useTransaction) in C:\My Projects\Rhetos\Source\Rhetos.Persistence\MsSqlExecuter.cs:line 184
+ClientConnectionId:232c3723-6281-4566-b8f6-f935d5585371
+Error Number:4060,State:1,Class:11
+2019-03-05 15:57:56.9417|ERROR|DeployPackages|Rhetos.FrameworkException: Could not connect to server 'localhost', database 'Hoteli' using integrated security account sbmatic. ---> System.Data.SqlClient.SqlException: Cannot open database "Hoteli" requested by the login. The login failed.
+Login failed for user 'OS\sbmatic'.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Rhetos.Persistence.MsSqlExecuter.SafeExecuteCommand(Action`1 action, Boolean useTransaction) in C:\My Projects\Rhetos\Source\Rhetos.Persistence\MsSqlExecuter.cs:line 184
+   --- End of inner exception stack trace ---
+   at Rhetos.Deployment.ApplicationGenerator.ValidateDbConnection() in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 143
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 73
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-05 15:58:34.7874|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-05 15:58:34.8499|TRACE|DeployPackages|Getting packages.
+2019-03-05 15:58:34.8499|ERROR|DeploymentConfiguration|No packages defined in 'RhetosPackages.config'. Edit the new file to set which Rhetos packages will be deployed. Note that removing a Rhetos package from the file will uninstall the package.
+2019-03-05 15:58:34.8655|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Hoteli\dist\HoteliRhetosServer.
+2019-03-05 15:58:34.8877|TRACE|DeployPackages|Loading plugins.
+2019-03-05 15:58:35.0883|TRACE|DeployPackages|SQL connection: DataSource=SBMATIC-PC\MATIC, InitialCatalog=Hoteli
+2019-03-05 15:58:35.1508|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-05 15:58:35.4515|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-05 15:58:35.4893|TRACE|DeployPackages|Application model has 1 statements.
+2019-03-05 15:58:35.5049|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-05 15:58:35.5049|ERROR|DeployPackages|WARNING: Empty assembly is generated.
+2019-03-05 15:58:35.5049|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-03-05 15:58:35.5206|TRACE|DeployPackages|Cleaning old migration data.
+2019-03-05 15:58:35.5518|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 0 remaining.
+2019-03-05 15:58:35.5518|TRACE|DeployPackages|Executing data migration scripts.
+2019-03-05 15:58:35.5674|TRACE|DeployPackages|Executed 0 of 0 scripts.
+2019-03-05 15:58:35.5674|TRACE|DeployPackages|Upgrading database.
+2019-03-05 15:58:35.6209|TRACE|DeployPackages|DatabaseGenerator removing 0 concept applications.
+2019-03-05 15:58:35.6209|TRACE|DeployPackages|DatabaseGenerator creating 0 concept applications.
+2019-03-05 15:58:35.6209|TRACE|DeployPackages|Deleting redundant migration data.
+2019-03-05 15:58:35.6365|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 0 remaining.
+2019-03-05 15:58:35.6365|TRACE|DeployPackages|Uploading DSL scripts.
+2019-03-05 15:58:35.6677|TRACE|DeployPackages|Uploaded 0 DSL scripts to database.
+2019-03-05 15:58:35.6677|TRACE|DeployPackages|Loading generated plugins.
+2019-03-05 15:58:35.6677|TRACE|DeployPackages|No server initialization plugins.
+2019-03-05 15:58:35.6834|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-03-05 15:58:35.6834|TRACE|DeployPackages|Done.
+2019-03-06 09:56:04.6297|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-06 09:56:04.6922|TRACE|DeployPackages|Getting packages.
+2019-03-06 09:56:04.7078|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 09:56:06.8686|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-06 09:56:07.0848|TRACE|NuGet|Installing 'Rhetos.CommonConcepts 2.11.0'.
+2019-03-06 09:56:07.2163|TRACE|NuGet|Successfully installed 'Rhetos.CommonConcepts 2.11.0'.
+2019-03-06 09:56:07.2384|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 09:56:07.9724|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-06 09:56:07.9880|TRACE|NuGet|Installing 'Rhetos.RestGenerator 2.5.0'.
+2019-03-06 09:56:08.0036|TRACE|NuGet|Successfully installed 'Rhetos.RestGenerator 2.5.0'.
+2019-03-06 09:56:08.0036|TRACE|PackageDownloader|Reading package Hoteli from unpacked source folder without metadata file.
+2019-03-06 09:56:08.0036|TRACE|DeployPackages|Reading Hoteli from source without metadata.
+2019-03-06 09:56:08.0414|TRACE|Packages|Hoteli 0.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\src.
+2019-03-06 09:56:08.0414|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Hoteli\dist\HoteliRhetosServer.
+2019-03-06 09:56:08.0414|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-06 09:56:08.0414|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-06 09:56:08.1573|TRACE|DeployPackages|Loading plugins.
+2019-03-06 09:56:08.6054|TRACE|DeployPackages|SQL connection: DataSource=SBMATIC-PC\MATIC, InitialCatalog=Hoteli
+2019-03-06 09:56:08.6431|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-06 09:56:08.7746|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-06 09:56:08.9751|TRACE|DeployPackages|Application model has 507 statements.
+2019-03-06 09:56:08.9751|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-06 09:56:09.0598|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Model.dll.
+2019-03-06 09:56:09.3762|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Orm.dll.
+2019-03-06 09:56:09.6080|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-03-06 09:56:09.9245|TRACE|DeployPackages|Generated 124 types.
+2019-03-06 09:56:09.9401|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-03-06 09:56:09.9401|TRACE|DeployPackages|Executing RestGenerator.
+2019-03-06 09:56:09.9935|TRACE|AssemblyGenerator|Compiling assembly: RestService.dll.
+2019-03-06 09:56:10.3478|INFO|AssemblyGenerator|Warning CS1701: Assuming assembly reference 'Autofac, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da' matches 'Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da', you may need to supply runtime policy.
+2019-03-06 09:56:10.3478|INFO|AssemblyGenerator|56 warnings CS0618: 'Rhetos.LegacyClientException' is obsolete: 'Use ClientException instead.'. At line 233, column 34, file 'd:\Hoteli\dist\HoteliRhetosServer\bin\Generated\RestService.cs'.
+2019-03-06 09:56:10.3478|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-03-06 09:56:11.3127|TRACE|DeployPackages|Cleaning old migration data.
+2019-03-06 09:56:11.3505|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 0 remaining.
+2019-03-06 09:56:11.3505|TRACE|DeployPackages|Executing data migration scripts.
+2019-03-06 09:56:11.3661|INFO|DataMigration|Execute Rhetos.CommonConcepts\0.9.12\1 - AppliedConcept Options1 Options2.sql (tag 533F534B-388C-4CE1-B8AE-A308542471F5)
+2019-03-06 09:56:11.3661|INFO|DataMigration|Execute Rhetos.CommonConcepts\0.9.14\1 - Claim.Active.sql (tag 323D7F48-433F-49E9-983B-09A4B7317077)
+2019-03-06 09:56:11.3661|INFO|DataMigration|Execute Rhetos.CommonConcepts\0.9.29\1 - RoleInheritsRole renames columns.sql (tag 0D99CDE7-E4CB-4FBF-937B-4ADEEEBC46CE)
+2019-03-06 09:56:11.3661|INFO|DataMigration|Execute Rhetos.CommonConcepts\0.9.29\2 - Permissions to RP and PP.sql (tag 33EA1F9E-1A89-4CF0-9AD3-A8E10BEF2D3C)
+2019-03-06 09:56:11.3661|INFO|DataMigration|Execute Rhetos.CommonConcepts\0.9.35\1 - A new tag in create property.sql (tag E2B91BB7-FED3-45DB-AFB1-61CEF615C2C3)
+2019-03-06 09:56:11.3817|INFO|DataMigration|Execute Rhetos.CommonConcepts\1.3\1 - Clear excess dependencies for subtype id.sql (tag B3D3CD35-D41F-4E70-A490-94CBD12226FF)
+2019-03-06 09:56:11.3817|INFO|DataMigration|Execute Rhetos.CommonConcepts\1.11\1 - DataStructureExtendsInfo to UniqueReferenceInfo.sql (tag 0246E7EA-F2F2-419B-9710-1149838E8604)
+2019-03-06 09:56:11.3817|INFO|DataMigration|Execute Rhetos.CommonConcepts\2.4\1 - KeepSynchronizedMetadata for Polymorphic.sql (tag BD03D06C-2EC3-4322-B46F-A88EEFB88572)
+2019-03-06 09:56:11.6179|TRACE|DeployPackages|Executed 8 of 8 scripts.
+2019-03-06 09:56:11.6179|TRACE|DeployPackages|Upgrading database.
+2019-03-06 09:56:11.7293|TRACE|DeployPackages|DatabaseGenerator removing 0 concept applications.
+2019-03-06 09:56:11.7293|TRACE|DatabaseGenerator Concepts|Creating ModuleInfo Common/Rhetos.DatabaseGenerator.DefaultConcepts.ModuleDatabaseDefinition, ID=E33EAC6B-F5B8-4B35-8766-1C62DD9B0C86.
+2019-03-06 09:56:11.7514|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Common.AutoCodeCache/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=E1BEC561-E9C7-435C-A66A-9729E1BC0F98.
+2019-03-06 09:56:11.7514|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.AutoCodeCache.Entity/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=7575AA9A-8BAE-4595-8BC4-DE22553A030C.
+2019-03-06 09:56:11.7670|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.AutoCodeCache.Property/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=C4B087F1-68E3-453B-92D4-B6E6AE0539FA.
+2019-03-06 09:56:11.7670|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.AutoCodeCache.Grouping/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=29848D97-D9D5-4B38-912D-3B13626848DE.
+2019-03-06 09:56:11.7670|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.AutoCodeCache.Prefix/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=ABB8B680-6271-42F7-B955-2C23BBD77C0E.
+2019-03-06 09:56:11.7670|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.AutoCodeCache.MinDigits/Rhetos.DatabaseGenerator.DefaultConcepts.IntegerPropertyDatabaseDefinition, ID=96DD1121-DC53-4CCB-8BBF-4F4FA67FC322.
+2019-03-06 09:56:11.7670|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.AutoCodeCache.LastCode/Rhetos.DatabaseGenerator.DefaultConcepts.IntegerPropertyDatabaseDefinition, ID=444A7BE4-81EA-4ED3-A6DA-C67AED4C42EF.
+2019-03-06 09:56:11.7670|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.AutoCodeCache.'Entity Property Grouping Prefix'/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=D34539FA-5120-452C-839C-2830A2FBD8F4.
+2019-03-06 09:56:11.7670|TRACE|DatabaseGenerator Concepts|Creating SqlProcedureInfo Common.AutoCodeCacheGetNext/Rhetos.DatabaseGenerator.DefaultConcepts.SqlProcedureDatabaseDefinition, ID=A890CB68-183A-4099-9C8C-CAD169217CA7.
+2019-03-06 09:56:11.7670|TRACE|DatabaseGenerator Concepts|Creating SqlProcedureInfo Common.AutoCodeCacheUpdate/Rhetos.DatabaseGenerator.DefaultConcepts.SqlProcedureDatabaseDefinition, ID=0F158CC3-D8FC-408B-B25D-ED150F85E0F6.
+2019-03-06 09:56:11.7670|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Common.FilterId/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=3F47AC17-3E72-40B9-8843-6271A00D137F.
+2019-03-06 09:56:11.7670|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.FilterId.Handle/Rhetos.DatabaseGenerator.DefaultConcepts.GuidPropertyDatabaseDefinition, ID=EC9CAD44-D77C-4AA5-B398-E93E8C36F009.
+2019-03-06 09:56:11.7670|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.FilterId.Value/Rhetos.DatabaseGenerator.DefaultConcepts.GuidPropertyDatabaseDefinition, ID=85488591-5CAD-4461-9B08-6B9F704F1EEB.
+2019-03-06 09:56:11.7670|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.FilterId.'Handle Value'/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=0C3C8E86-7352-43DF-88D9-C478CEA2FBAF.
+2019-03-06 09:56:11.7670|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Common.KeepSynchronizedMetadata/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=D27C9269-1D2F-4176-ADC6-0ADFF3DA3076.
+2019-03-06 09:56:11.7670|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.KeepSynchronizedMetadata.Target/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=20B2066A-ED1F-4690-96E5-41C387337774.
+2019-03-06 09:56:11.7827|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.KeepSynchronizedMetadata.Source/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=0F75F901-9FB1-4DE0-BC19-FD7149DD0AF7.
+2019-03-06 09:56:11.7827|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.KeepSynchronizedMetadata.Context/Rhetos.DatabaseGenerator.DefaultConcepts.LongStringPropertyDatabaseDefinition, ID=B369DBBB-F9CB-4FB5-87E8-FC29FEC1DB63.
+2019-03-06 09:56:11.7827|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Common.ExclusiveLock/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=97BFA61E-90C3-4616-8297-E3DC2A99B747.
+2019-03-06 09:56:11.7827|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.ExclusiveLock.ResourceType/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=D238F358-7E46-423C-9C08-10632F36A6BD.
+2019-03-06 09:56:11.7827|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.ExclusiveLock.ResourceID/Rhetos.DatabaseGenerator.DefaultConcepts.GuidPropertyDatabaseDefinition, ID=10B6A673-8C70-4383-A1E1-360BBAE2DB9C.
+2019-03-06 09:56:11.7827|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.ExclusiveLock.UserName/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=E00BCBCA-3501-4C72-8AD1-9A947E75E326.
+2019-03-06 09:56:11.7827|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.ExclusiveLock.Workstation/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=1769D2E7-DBC8-4912-9890-5B29EFAAFF74.
+2019-03-06 09:56:11.7827|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.ExclusiveLock.LockStart/Rhetos.DatabaseGenerator.DefaultConcepts.DateTimePropertyDatabaseDefinition, ID=752DC94B-50A4-45AE-86F9-19C7D2AD61D5.
+2019-03-06 09:56:11.7827|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.ExclusiveLock.LockFinish/Rhetos.DatabaseGenerator.DefaultConcepts.DateTimePropertyDatabaseDefinition, ID=F28C3EC5-9C40-4668-8BDC-C24C95985072.
+2019-03-06 09:56:11.7827|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Common.Log/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=915EB850-4AB8-4716-A7F2-3AC632E39FBE.
+2019-03-06 09:56:11.7827|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.Log.UserName/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=D9287257-4BF1-4CFF-B927-912ED5D22067.
+2019-03-06 09:56:11.7827|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.Log.Workstation/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=E7500A42-18B4-43F3-8BF2-B340BCD2884D.
+2019-03-06 09:56:11.7827|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.Log.ContextInfo/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=97DC357D-E27C-4561-8536-8D36E1596D25.
+2019-03-06 09:56:11.7827|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.Log.Action/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=4202A5A5-535E-4A42-9869-907C77DE3B76.
+2019-03-06 09:56:11.7827|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.Log.TableName/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=74C2EB43-1F9F-4D99-8FBC-02D63BC35A13.
+2019-03-06 09:56:11.7827|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.Log.ItemId/Rhetos.DatabaseGenerator.DefaultConcepts.GuidPropertyDatabaseDefinition, ID=CFBA4D69-958F-4FA0-9DD2-C2EDFB0AF7A5.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.Log.Description/Rhetos.DatabaseGenerator.DefaultConcepts.LongStringPropertyDatabaseDefinition, ID=268DCD86-5E1D-46C5-BEB3-866DAF943954.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.Log.Created/Rhetos.DatabaseGenerator.DefaultConcepts.DateTimePropertyDatabaseDefinition, ID=57E26814-97BC-46F4-9EB1-AE6A2B217497.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Common.LogReader/Rhetos.DatabaseGenerator.DefaultConcepts.SqlQueryableDatabaseDefinition, ID=C7786214-6DDA-46D6-A421-B5B1399109AE.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Common.LogRelatedItem/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=21864A7F-3014-4BB5-985A-462CDADD1E14.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.LogRelatedItem.TableName/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=81D976F9-CB10-4DFC-BD76-C90E27EF85BD.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.LogRelatedItem.Relation/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=250B4E0F-3C73-4332-9772-BE17E83AAF76.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.LogRelatedItem.ItemId/Rhetos.DatabaseGenerator.DefaultConcepts.GuidPropertyDatabaseDefinition, ID=F55740E7-0F4F-447A-92A3-D690C3A1DACD.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.LogRelatedItem.Log/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=8009A052-D1F7-4988-A12D-74110DB1EFF2.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.LogRelatedItem.Log/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=D72ED653-84CE-492C-B09C-6849EBCFC72A.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Common.LogRelatedItemReader/Rhetos.DatabaseGenerator.DefaultConcepts.SqlQueryableDatabaseDefinition, ID=16AE1284-ED13-42F6-BED2-A70ED2DA7F44.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating SqlDefaultPropertyInfo Common.Log.Created/Rhetos.DatabaseGenerator.DefaultConcepts.SqlDefaultPropertyDatabaseDefinition, ID=F271B04A-3190-4A7A-86A1-D91AEEB5077E.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating SqlDefaultPropertyInfo Common.Log.UserName/Rhetos.DatabaseGenerator.DefaultConcepts.SqlDefaultPropertyDatabaseDefinition, ID=91384DE9-55DA-40CC-A873-AD3C5C0D655C.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating SqlDefaultPropertyInfo Common.Log.Workstation/Rhetos.DatabaseGenerator.DefaultConcepts.SqlDefaultPropertyDatabaseDefinition, ID=D35EAD86-8A18-4EAB-BD55-830675EE58D6.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating SqlDefaultPropertyInfo Common.Log.ContextInfo/Rhetos.DatabaseGenerator.DefaultConcepts.SqlDefaultPropertyDatabaseDefinition, ID=E94D83F4-1AC0-49A4-91CF-416EE64B0909.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.Log.'TableName Action'/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=EAB9FD46-C885-48DA-9581-533072BDA358.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Common.RelatedEventsSource/Rhetos.DatabaseGenerator.DefaultConcepts.SqlQueryableDatabaseDefinition, ID=B4B7F78E-11BB-4853-BDD8-F38F937C5411.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Common.Claim/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=748588C9-2E87-408B-95AC-648705CFF159.
+2019-03-06 09:56:11.7983|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.Claim.ClaimResource/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=AE1177C2-0B1D-49B2-95E9-E24D4E0768DF.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.Claim.ClaimRight/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=90B42B29-BAB9-476C-8BC0-8ABB067C6136.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.Claim.Active/Rhetos.DatabaseGenerator.DefaultConcepts.BoolPropertyDatabaseDefinition, ID=FC1828BF-8297-4681-A090-05D1FC272FE2.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating EntityLoggingInfo Common.Claim/Rhetos.DatabaseGenerator.DefaultConcepts.EntityLoggingDefinition, ID=1863C950-251E-47D4-91AB-9DEC677DFE67.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Common.Principal/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=C6613CFE-AB4F-49EC-9994-208106C9E7D0.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.Principal.Name/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=CDF6E684-24CC-41A1-8896-F2BF1099A705.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating EntityLoggingInfo Common.Principal/Rhetos.DatabaseGenerator.DefaultConcepts.EntityLoggingDefinition, ID=0B2CB729-C9ED-4F99-BD39-9CA1EB0C1BA5.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Common.PrincipalHasRole/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=D088B9BC-AC24-4381-B237-3BA62468053D.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.PrincipalHasRole.Principal/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=B4FB6C0C-6EDD-4D09-92EE-97E1F81FA292.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.PrincipalHasRole.Principal/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=6746A56A-0E3E-432C-AE6D-E195BAD20A82.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Common.Role/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=1C1D483F-5278-4BA2-805F-633FF45EC59D.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.PrincipalHasRole.Role/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=0C926D42-630B-424C-8097-7F00F8F3ADFE.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.PrincipalHasRole.Role/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=9FA663E0-890C-43A6-9385-1C161D316645.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.PrincipalHasRole.'Principal Role'/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=137ACF45-6E98-4DF2-B03B-DC6220523F73.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating EntityLoggingInfo Common.PrincipalHasRole/Rhetos.DatabaseGenerator.DefaultConcepts.EntityLoggingDefinition, ID=4516FE55-84F9-4745-9755-F60874383C73.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.Role.Name/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=7C67A400-81A2-4FF7-A498-E21CB70DC0E9.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating EntityLoggingInfo Common.Role/Rhetos.DatabaseGenerator.DefaultConcepts.EntityLoggingDefinition, ID=2F0DF0C0-BE24-4EAD-AAD1-4F911FB6AE6B.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Common.RoleInheritsRole/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=0D3D8016-B8D4-45AE-87A5-D9A47737A909.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.RoleInheritsRole.UsersFrom/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=C658773F-510A-4B1C-8E52-FF60AA48F9A8.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.RoleInheritsRole.UsersFrom/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=E0815C9A-2942-4138-98E9-9B5018A10422.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.RoleInheritsRole.PermissionsFrom/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=15BE892B-D16D-4FA0-95EE-69B72836114A.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.RoleInheritsRole.PermissionsFrom/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=D2E47C68-4A0D-4B57-A8D2-1E2BBD51F2AA.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.RoleInheritsRole.'UsersFrom PermissionsFrom'/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=9E6D8A9B-1D62-4CBC-81B1-2CBE9597DD0E.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating EntityLoggingInfo Common.RoleInheritsRole/Rhetos.DatabaseGenerator.DefaultConcepts.EntityLoggingDefinition, ID=DA24B97A-CA08-4E1A-AE90-F29BC52710DA.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Common.PrincipalPermission/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=DE9A9902-160C-44BD-AB94-7EDFCD466602.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.PrincipalPermission.Principal/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=B7E0A578-BA78-4788-A81D-65E239338E9E.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.PrincipalPermission.Principal/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=8679A2C9-238D-4081-B60F-EEECA6779BA7.
+2019-03-06 09:56:11.8139|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.PrincipalPermission.Claim/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=B4DA3D56-BD89-48C9-87E8-F7DB1B679837.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.PrincipalPermission.Claim/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=900D899C-5A5F-4116-8D3E-F5F131BE37F2.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.PrincipalPermission.IsAuthorized/Rhetos.DatabaseGenerator.DefaultConcepts.BoolPropertyDatabaseDefinition, ID=4893ABB3-0496-448A-9AFB-93C6338A4EDE.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.PrincipalPermission.'Principal Claim'/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=EDAF5E1B-1A31-4818-A28A-07E7B91F7818.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating EntityLoggingInfo Common.PrincipalPermission/Rhetos.DatabaseGenerator.DefaultConcepts.EntityLoggingDefinition, ID=3D0FD024-9076-4D88-A287-356B012BBB58.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Common.RolePermission/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=70B80AAA-D9A4-4A6D-9928-10FBDD6B6EE2.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.RolePermission.Role/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=03571300-A529-4B77-903E-C439F8015028.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.RolePermission.Role/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=EB0EB300-6AE1-434B-B214-CEA64F55C0A3.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.RolePermission.Claim/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=76628476-9671-4249-8CA5-2D9807B0D589.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.RolePermission.Claim/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=F9BC57AA-E39A-436E-A49D-9EAFF1C48922.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Common.RolePermission.IsAuthorized/Rhetos.DatabaseGenerator.DefaultConcepts.BoolPropertyDatabaseDefinition, ID=C2F35702-B0F2-4603-B5A5-31FCD1E7AEFB.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.RolePermission.'Role Claim'/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=808E287E-6C71-4F94-9216-1CC0DDDD27AD.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating EntityLoggingInfo Common.RolePermission/Rhetos.DatabaseGenerator.DefaultConcepts.EntityLoggingDefinition, ID=17297C1E-A540-47E1-8EA6-B5D9C8921C7D.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.Log.ItemId/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=04D651FA-C387-4109-9EFC-24D3045C925C.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.LogRelatedItem.TableName/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=C1B462B9-7277-407D-88F1-9C722EC7C0D4.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.LogRelatedItem.ItemId/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=DBE43DCD-4747-4CFE-A3E4-7B122B65016C.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.LogRelatedItem.Log/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=6C97BD4A-EC52-49A7-8CD7-E71E359F8888.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.PrincipalHasRole.Principal/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=E1E41EE4-173C-4367-B688-B897E9546423.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.RoleInheritsRole.UsersFrom/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=54DA3734-E05E-441D-8101-0C6533AF0DB8.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.PrincipalPermission.Principal/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=8E7E8D90-6640-489B-981F-4176C492CB7C.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.PrincipalPermission.Claim/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=1C4E5E6C-7AA7-452C-A0C6-29178F2F4625.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.RolePermission.Role/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=D71964EF-8634-4658-8523-592C4543FC63.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.RolePermission.Claim/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=DFCF3924-F868-45AE-85EA-98D6C39D3139.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.ExclusiveLock.'ResourceID ResourceType'/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=F8D1F6CC-105A-4485-8A60-A8DCBCABBE68.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.Claim.'ClaimResource ClaimRight'/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=7134900A-E2B2-4BA5-A882-CD97A8874745.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.Principal.Name/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=21818214-0D2F-414F-9E72-BBBBB7EBE0BC.
+2019-03-06 09:56:11.8295|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Common.Role.Name/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=ED2C17B9-7F1B-41BC-8543-E7ECC751FEE2.
+2019-03-06 09:56:11.8295|INFO|DeployPackages|DatabaseGenerator creating 104 concept applications.
+2019-03-06 09:56:12.0835|TRACE|DeployPackages|Deleting redundant migration data.
+2019-03-06 09:56:12.0835|TRACE|DeployPackages|Deleted 12 columns in data migration schemas, 7 remaining.
+2019-03-06 09:56:12.0992|TRACE|DeployPackages|Uploading DSL scripts.
+2019-03-06 09:56:12.0992|TRACE|DeployPackages|Uploaded 6 DSL scripts to database.
+2019-03-06 09:56:12.0992|TRACE|DeployPackages|Loading generated plugins.
+2019-03-06 09:56:12.2307|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-03-06 09:56:13.4874|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-03-06 09:56:13.6345|TRACE|ClaimGenerator Claims|Inserting claims Common.AddToLog.Execute, Common.AutoCodeCache.Edit, Common.AutoCodeCache.New, Common.AutoCodeCache.Read, Common.AutoCodeCache.Remove, Common.Claim.Edit, Common.Claim.New, Common.Claim.Read, Common.Claim.Remove, Common.ExclusiveLock.Edit, Common.ExclusiveLock.New, Common.ExclusiveLock.Read, Common.ExclusiveLock.Remove, Common.FilterId.Edit, Common.FilterId.New, Common.FilterId.Read, Common.FilterId.Remove, Common.KeepSynchronizedMetadata.Edit, Common.KeepSynchronizedMetadata.New, Common.KeepSynchronizedMetadata.Read, Common.KeepSynchronizedMetadata.Remove, Common.Log.Edit, Common.Log.New, Common.Log.Read, Common.Log.Remove, Common.LogReader.Read, Common.LogRelatedItem.Edit, Common.LogRelatedItem.New, Common.LogRelatedItem.Read, Common.LogRelatedItem.Remove, Common.LogRelatedItemReader.Read, Common.MyClaim.Read, Common.Principal.Edit, Common.Principal.New, Common.Principal.Read, Common.Principal.Remove, Common.PrincipalHasRole.Edit, Common.PrincipalHasRole.New, Common.PrincipalHasRole.Read, Common.PrincipalHasRole.Remove, Common.PrincipalPermission.Edit, Common.PrincipalPermission.New, Common.PrincipalPermission.Read, Common.PrincipalPermission.Remove, Common.RelatedEventsSource.Read, Common.ReleaseLock.Execute, Common.Role.Edit, Common.Role.New, Common.Role.Read, Common.Role.Remove, Common.RoleInheritsRole.Edit, Common.RoleInheritsRole.New, Common.RoleInheritsRole.Read, Common.RoleInheritsRole.Remove, Common.RolePermission.Edit, Common.RolePermission.New, Common.RolePermission.Read, Common.RolePermission.Remove, Common.SetLock.Execute.
+2019-03-06 09:56:14.1359|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-03-06 09:56:14.1359|TRACE|DeployPackages|Done.
+2019-03-06 10:53:41.7131|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-06 10:53:41.7977|TRACE|DeployPackages|Getting packages.
+2019-03-06 10:53:41.8133|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 10:53:43.6878|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-06 10:53:43.8884|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-06 10:53:43.9196|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 10:53:44.2208|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-06 10:53:44.2208|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-06 10:53:44.2208|TRACE|PackageDownloader|Reading package Hoteli from unpacked source folder without metadata file.
+2019-03-06 10:53:44.2208|TRACE|DeployPackages|Reading Hoteli from source without metadata.
+2019-03-06 10:53:44.2742|TRACE|Packages|Hoteli 0.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\src.
+2019-03-06 10:53:44.2742|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Hoteli\dist\HoteliRhetosServer.
+2019-03-06 10:53:44.2742|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-06 10:53:44.2742|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-06 10:53:44.3054|TRACE|DeployPackages|Loading plugins.
+2019-03-06 10:53:44.7222|TRACE|DeployPackages|SQL connection: DataSource=SBMATIC-PC\MATIC, InitialCatalog=Hoteli
+2019-03-06 10:53:44.7601|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-06 10:53:44.8608|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-06 10:53:45.0927|TRACE|DeployPackages|Application model has 551 statements.
+2019-03-06 10:53:45.0927|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-06 10:53:45.2086|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Model.dll.
+2019-03-06 10:53:45.4470|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Orm.dll.
+2019-03-06 10:53:45.6945|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-03-06 10:53:46.0506|TRACE|DeployPackages|Generated 157 types.
+2019-03-06 10:53:46.0506|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-03-06 10:53:46.0662|TRACE|DeployPackages|Executing RestGenerator.
+2019-03-06 10:53:46.0975|TRACE|AssemblyGenerator|Compiling assembly: RestService.dll.
+2019-03-06 10:53:46.4362|INFO|AssemblyGenerator|Warning CS1701: Assuming assembly reference 'Autofac, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da' matches 'Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da', you may need to supply runtime policy.
+2019-03-06 10:53:46.4362|INFO|AssemblyGenerator|88 warnings CS0618: 'Rhetos.LegacyClientException' is obsolete: 'Use ClientException instead.'. At line 257, column 34, file 'd:\Hoteli\dist\HoteliRhetosServer\bin\Generated\RestService.cs'.
+2019-03-06 10:53:46.4362|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-03-06 10:53:47.3858|TRACE|DeployPackages|Cleaning old migration data.
+2019-03-06 10:53:47.4236|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 7 remaining.
+2019-03-06 10:53:47.4236|TRACE|DeployPackages|Executing data migration scripts.
+2019-03-06 10:53:47.4549|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-03-06 10:53:47.4549|TRACE|DeployPackages|Upgrading database.
+2019-03-06 10:53:47.6020|TRACE|DatabaseGenerator Concepts|Removing EntityLoggingInfo Common.PrincipalPermission/Rhetos.DatabaseGenerator.DefaultConcepts.EntityLoggingDefinition, ID=3D0FD024-9076-4D88-A287-356B012BBB58.
+2019-03-06 10:53:47.6020|INFO|DeployPackages|DatabaseGenerator removing 1 concept applications.
+2019-03-06 10:53:47.6020|TRACE|DatabaseGenerator Concepts|Creating ModuleInfo Hoteli/Rhetos.DatabaseGenerator.DefaultConcepts.ModuleDatabaseDefinition, ID=C0759245-0D5F-4194-9567-396DC815C458.
+2019-03-06 10:53:47.6020|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Hoteli.Hotel/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=FF1EC346-6FC4-4EB5-9DCD-66137CED1108.
+2019-03-06 10:53:47.6020|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Hotel.NazivHotela/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=DC1AC0F9-5D19-4BDB-B2A3-6D0664C0F109.
+2019-03-06 10:53:47.6242|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Hotel.AdresaHotela/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=7800FCA7-5D66-4FA2-9C72-9D576060D964.
+2019-03-06 10:53:47.6242|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Hoteli.TipSobe/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=3D41B36A-23CA-4FAE-AE4E-32F1A17F9220.
+2019-03-06 10:53:47.6242|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.TipSobe.NazivTipa/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=144FAE41-0683-4AF2-9D6E-D1D3EE5E8DFB.
+2019-03-06 10:53:47.6242|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.TipSobe.CijenaTipa/Rhetos.DatabaseGenerator.DefaultConcepts.DecimalPropertyDatabaseDefinition, ID=5771F7A0-D5BB-405C-B236-F52A79A9FE19.
+2019-03-06 10:53:47.6242|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Hoteli.Soba/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=B2E2E777-1A69-4747-95F6-CCCBBE6C564A.
+2019-03-06 10:53:47.6242|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Soba.NazivSobe/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=22D048BA-73D4-4EC9-A6B7-DD2DBAC28C52.
+2019-03-06 10:53:47.6242|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Soba.Hotel/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=6E5F3F62-CFEF-4C7A-BCDE-7F2D06EC1A02.
+2019-03-06 10:53:47.6242|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Soba.Hotel/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=578CD991-EEB1-43F2-9F24-8D90FE447C60.
+2019-03-06 10:53:47.6242|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Soba.TipSobe/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=E64C71FC-D46F-4262-AB56-0AB47A2A4FF8.
+2019-03-06 10:53:47.6242|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Soba.TipSobe/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=C065BAD0-8B58-431C-8CA6-C60CDA6BD934.
+2019-03-06 10:53:47.6242|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Hoteli.Gost/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=B4AC39F5-28D6-436B-AB4F-635C274B11E6.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Gost.Ime/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=D94CBF58-4174-490B-B9C2-AD1914C49552.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Gost.Prezime/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=ADF031C2-1A39-428F-A416-8537D6C5C740.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Gost.Telefon/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=3467006D-4160-4486-8A61-E2602A5768A6.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Gost.Email/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=9F0DF79D-A035-4F8A-B04A-142AA47353AF.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Hoteli.Rezervacija/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=3984F906-95BD-4FF8-80C1-22CA97D2EDCD.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Rezervacija.VrijemeOd/Rhetos.DatabaseGenerator.DefaultConcepts.DateTimePropertyDatabaseDefinition, ID=18E5A9E8-5936-42DF-BD21-18FCF3364386.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Rezervacija.VrijemeDo/Rhetos.DatabaseGenerator.DefaultConcepts.DateTimePropertyDatabaseDefinition, ID=0EEE476D-AFE8-453B-8759-DA03202FEF81.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Rezervacija.Gost/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=79F905D6-B61E-4C5C-B3D4-6CD05CB7B6C0.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Rezervacija.Gost/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=BEEDF2B2-54B8-464A-88D1-F211DC08A28D.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Rezervacija.Soba/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=475DCE49-77C4-4180-B3EA-C187B45D24B8.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Rezervacija.Soba/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=CCFDE53C-ADCC-4E8A-AE46-B6DD9560673B.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Hoteli.Racun/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=5D3B77CC-1CFC-480E-9CCD-8F8C67F496C7.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Racun.Iznos/Rhetos.DatabaseGenerator.DefaultConcepts.DecimalPropertyDatabaseDefinition, ID=E8612D10-D6E6-4CF9-BBE4-187BF660B457.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Racun.Popust/Rhetos.DatabaseGenerator.DefaultConcepts.IntegerPropertyDatabaseDefinition, ID=0D9538AC-9710-4086-B8B4-D1EA64E06FE7.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Racun.Placeno/Rhetos.DatabaseGenerator.DefaultConcepts.BoolPropertyDatabaseDefinition, ID=C3970E1B-065E-480C-816F-C2936B3833BD.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Racun.Rezervacija/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=BB522F53-0A9C-4302-92C6-D2B1E7827135.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Racun.Rezervacija/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=F5A3FA7D-24F8-408D-BA10-0B0BDA82D958.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Hoteli.Usluga/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=3173483C-8638-4914-B07B-4175DC4EC269.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Usluga.NazivUsluge/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=B281FFB2-4D4A-452B-B9C5-0E1CE591F4DF.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Usluga.CijenaUsluge/Rhetos.DatabaseGenerator.DefaultConcepts.DecimalPropertyDatabaseDefinition, ID=1EC58E1A-0A5E-448A-8ACD-66D68BE85851.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Hoteli.Stavka/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=BB260CD0-D2C3-4010-9852-6D29BC5F2DDD.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Stavka.NazivStavke/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=BBBEC6C1-F787-497D-9E0D-45E70CF938B8.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Stavka.Usluga/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=6DC0C1D1-427A-4F12-A3BE-470EA7535DA2.
+2019-03-06 10:53:47.6398|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Stavka.Usluga/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=7EBE17C4-9AB7-4AD6-ADDF-91CD563DE980.
+2019-03-06 10:53:47.6554|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Stavka.Racun/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=AC45324A-AEBD-4539-94D1-4448C55EDC8A.
+2019-03-06 10:53:47.6554|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Stavka.Racun/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=0189DC66-3A79-41F0-A064-19E3934D2AFF.
+2019-03-06 10:53:47.6554|TRACE|DatabaseGenerator Concepts|Creating EntityLoggingInfo Common.PrincipalPermission/Rhetos.DatabaseGenerator.DefaultConcepts.EntityLoggingDefinition, ID=3D0FD024-9076-4D88-A287-356B012BBB58.
+2019-03-06 10:53:47.6554|INFO|DeployPackages|DatabaseGenerator creating 41 concept applications.
+2019-03-06 10:53:47.7714|TRACE|DeployPackages|Deleting redundant migration data.
+2019-03-06 10:53:47.7714|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 7 remaining.
+2019-03-06 10:53:47.7714|TRACE|DeployPackages|Uploading DSL scripts.
+2019-03-06 10:53:47.7870|TRACE|DeployPackages|Uploaded 7 DSL scripts to database.
+2019-03-06 10:53:47.7870|TRACE|DeployPackages|Loading generated plugins.
+2019-03-06 10:53:47.9095|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-03-06 10:53:49.1444|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-03-06 10:53:49.2916|TRACE|ClaimGenerator Claims|Inserting claims Hoteli.Gost.Edit, Hoteli.Gost.New, Hoteli.Gost.Read, Hoteli.Gost.Remove, Hoteli.Hotel.Edit, Hoteli.Hotel.New, Hoteli.Hotel.Read, Hoteli.Hotel.Remove, Hoteli.Racun.Edit, Hoteli.Racun.New, Hoteli.Racun.Read, Hoteli.Racun.Remove, Hoteli.Rezervacija.Edit, Hoteli.Rezervacija.New, Hoteli.Rezervacija.Read, Hoteli.Rezervacija.Remove, Hoteli.Soba.Edit, Hoteli.Soba.New, Hoteli.Soba.Read, Hoteli.Soba.Remove, Hoteli.Stavka.Edit, Hoteli.Stavka.New, Hoteli.Stavka.Read, Hoteli.Stavka.Remove, Hoteli.TipSobe.Edit, Hoteli.TipSobe.New, Hoteli.TipSobe.Read, Hoteli.TipSobe.Remove, Hoteli.Usluga.Edit, Hoteli.Usluga.New, Hoteli.Usluga.Read, Hoteli.Usluga.Remove.
+2019-03-06 10:53:49.7085|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-03-06 10:53:49.7085|TRACE|DeployPackages|Done.
+2019-03-06 11:57:17.1625|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-06 11:57:17.2470|TRACE|DeployPackages|Getting packages.
+2019-03-06 11:57:17.2750|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 11:57:19.5022|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-06 11:57:19.7242|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-06 11:57:19.7472|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 11:57:20.1287|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-06 11:57:20.1427|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-06 11:57:20.1467|TRACE|PackageDownloader|Reading package Hoteli from unpacked source folder without metadata file.
+2019-03-06 11:57:20.1467|TRACE|DeployPackages|Reading Hoteli from source without metadata.
+2019-03-06 11:57:20.1977|TRACE|Packages|Hoteli 0.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\src.
+2019-03-06 11:57:20.1977|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Hoteli\dist\HoteliRhetosServer.
+2019-03-06 11:57:20.1977|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-06 11:57:20.1977|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-06 11:57:20.3147|TRACE|DeployPackages|Loading plugins.
+2019-03-06 11:57:20.8307|TRACE|DeployPackages|SQL connection: DataSource=SBMATIC-PC\MATIC, InitialCatalog=Hoteli
+2019-03-06 11:57:20.8758|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-06 11:57:21.0022|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-06 11:57:21.0942|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: Invalid parameters after keyword 'Extends'. At line 30, column 7, file 'D:\Hoteli\src\DslScripts\Hoteli.rhe',
+after: "...{ Required; } ShortString Email { Required; } } Entity GostPrijatelj {",
+before: "Extends Gost; ShortString KodPopust; } Entity GostPoslovno { Extend...".
+
+Possible causes:
+GenericParser: Cannot read the value of Base in DataStructureExtendsInfo. Cannot read the value of Name in DataStructureInfo. Parent property and the following key value (Name) must be separated with a dot. Expected "."
+At line 30, column 7, file 'D:\Hoteli\src\DslScripts\Hoteli.rhe',
+after: "...{ Required; } ShortString Email { Required; } } Entity GostPrijatelj {",
+before: "Extends Gost; ShortString KodPopust; } Entity GostPoslovno { Extend...".
+   at Rhetos.Dsl.DslParser.ParseNextConcept(TokenReader tokenReader, Stack`1 context, MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 160
+   at Rhetos.Dsl.DslParser.ExtractConcepts(MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 104
+   at Rhetos.Dsl.DslParser.GetConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 54
+   at Rhetos.Dsl.DslParser.get_ParsedConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 47
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 114
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-06 11:58:46.1502|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-06 11:58:46.2092|TRACE|DeployPackages|Getting packages.
+2019-03-06 11:58:46.2332|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 11:58:48.1647|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-06 11:58:48.3977|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-06 11:58:48.4207|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 11:58:48.8332|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-06 11:58:48.8332|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-06 11:58:48.8512|TRACE|PackageDownloader|Reading package Hoteli from unpacked source folder without metadata file.
+2019-03-06 11:58:48.8512|TRACE|DeployPackages|Reading Hoteli from source without metadata.
+2019-03-06 11:58:48.8962|TRACE|Packages|Hoteli 0.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\src.
+2019-03-06 11:58:48.8962|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Hoteli\dist\HoteliRhetosServer.
+2019-03-06 11:58:48.8962|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-06 11:58:48.8962|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-06 11:58:48.9232|TRACE|DeployPackages|Loading plugins.
+2019-03-06 11:58:49.3832|TRACE|DeployPackages|SQL connection: DataSource=SBMATIC-PC\MATIC, InitialCatalog=Hoteli
+2019-03-06 11:58:49.4230|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-06 11:58:49.5384|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-06 11:58:49.7694|TRACE|DeployPackages|Application model has 568 statements.
+2019-03-06 11:58:49.7704|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-06 11:58:49.9144|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Model.dll.
+2019-03-06 11:58:50.1618|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Orm.dll.
+2019-03-06 11:58:50.4238|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-03-06 11:58:50.7990|TRACE|DeployPackages|Generated 169 types.
+2019-03-06 11:58:50.8040|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-03-06 11:58:50.8040|TRACE|DeployPackages|Executing RestGenerator.
+2019-03-06 11:58:50.8510|TRACE|AssemblyGenerator|Compiling assembly: RestService.dll.
+2019-03-06 11:58:51.2120|INFO|AssemblyGenerator|Warning CS1701: Assuming assembly reference 'Autofac, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da' matches 'Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da', you may need to supply runtime policy.
+2019-03-06 11:58:51.2120|INFO|AssemblyGenerator|100 warnings CS0618: 'Rhetos.LegacyClientException' is obsolete: 'Use ClientException instead.'. At line 266, column 34, file 'd:\Hoteli\dist\HoteliRhetosServer\bin\Generated\RestService.cs'.
+2019-03-06 11:58:51.2120|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-03-06 11:58:52.2590|TRACE|DeployPackages|Cleaning old migration data.
+2019-03-06 11:58:52.3010|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 7 remaining.
+2019-03-06 11:58:52.3030|TRACE|DeployPackages|Executing data migration scripts.
+2019-03-06 11:58:52.3320|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-03-06 11:58:52.3330|TRACE|DeployPackages|Upgrading database.
+2019-03-06 11:58:52.4930|TRACE|DatabaseGenerator Concepts|Removing PropertyInfo Hoteli.Rezervacija.Gost/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=BEEDF2B2-54B8-464A-88D1-F211DC08A28D.
+2019-03-06 11:58:52.4930|TRACE|DatabaseGenerator Concepts|Removing PropertyInfo Hoteli.Rezervacija.Gost/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=79F905D6-B61E-4C5C-B3D4-6CD05CB7B6C0.
+2019-03-06 11:58:52.4930|INFO|DeployPackages|DatabaseGenerator removing 2 concept applications.
+2019-03-06 11:58:52.5100|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Hoteli.GostPrijatelj/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=B525DD66-BF6E-45BD-8C01-A747F775BB1B.
+2019-03-06 11:58:52.5100|TRACE|DatabaseGenerator Concepts|Creating UniqueReferenceInfo Hoteli.GostPrijatelj/Rhetos.DatabaseGenerator.DefaultConcepts.UniqueReferenceDatabaseDefinition, ID=02CF86B9-C2BF-41FB-918A-194C227ED080.
+2019-03-06 11:58:52.5100|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.GostPrijatelj.KodPopust/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=296143F6-1062-4E09-843D-86702CB097CC.
+2019-03-06 11:58:52.5100|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Hoteli.GostPoslovno/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=1F23C735-E636-49FB-A252-662953802114.
+2019-03-06 11:58:52.5100|TRACE|DatabaseGenerator Concepts|Creating UniqueReferenceInfo Hoteli.GostPoslovno/Rhetos.DatabaseGenerator.DefaultConcepts.UniqueReferenceDatabaseDefinition, ID=6FCB3B9D-C7A6-4901-A0B2-18F43BC8BC5A.
+2019-03-06 11:58:52.5210|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.GostPoslovno.Pozicija/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=846EFC6A-6862-49F0-9E52-D5F6B77E15AA.
+2019-03-06 11:58:52.5210|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo Hoteli.GostRezervacija/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=37812007-2311-4375-9B82-DAD60237A923.
+2019-03-06 11:58:52.5210|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.GostRezervacija.Rezervacija/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=D1303A2D-6DC1-43D6-ADFD-569E771D3EA2.
+2019-03-06 11:58:52.5210|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.GostRezervacija.Rezervacija/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=79E88BD9-76DE-4169-A5C8-923A68690BF4.
+2019-03-06 11:58:52.5210|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.GostRezervacija.Gost/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=887B75F0-3F48-4B89-ACD1-86B53E5F3849.
+2019-03-06 11:58:52.5210|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.GostRezervacija.Gost/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=E6CF4306-344A-4CB0-ACE8-519CCF22080E.
+2019-03-06 11:58:52.5210|INFO|DeployPackages|DatabaseGenerator creating 11 concept applications.
+2019-03-06 11:58:52.6840|TRACE|DeployPackages|Deleting redundant migration data.
+2019-03-06 11:58:52.6960|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 8 remaining.
+2019-03-06 11:58:52.6960|TRACE|DeployPackages|Uploading DSL scripts.
+2019-03-06 11:58:52.7100|TRACE|DeployPackages|Uploaded 7 DSL scripts to database.
+2019-03-06 11:58:52.7100|TRACE|DeployPackages|Loading generated plugins.
+2019-03-06 11:58:52.8410|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-03-06 11:58:54.1980|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-03-06 11:58:54.3896|TRACE|ClaimGenerator Claims|Inserting claims Hoteli.GostPoslovno.Edit, Hoteli.GostPoslovno.New, Hoteli.GostPoslovno.Read, Hoteli.GostPoslovno.Remove, Hoteli.GostPrijatelj.Edit, Hoteli.GostPrijatelj.New, Hoteli.GostPrijatelj.Read, Hoteli.GostPrijatelj.Remove, Hoteli.GostRezervacija.Edit, Hoteli.GostRezervacija.New, Hoteli.GostRezervacija.Read, Hoteli.GostRezervacija.Remove.
+2019-03-06 11:58:54.8066|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-03-06 11:58:54.8066|TRACE|DeployPackages|Done.
+2019-03-06 14:32:35.9797|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-06 14:32:36.0644|TRACE|DeployPackages|Getting packages.
+2019-03-06 14:32:36.0800|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 14:32:37.9925|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-06 14:32:38.1931|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-06 14:32:38.2243|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 14:32:38.5632|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-06 14:32:38.5632|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-06 14:32:38.5788|TRACE|PackageDownloader|Reading package Hoteli from unpacked source folder without metadata file.
+2019-03-06 14:32:38.5788|TRACE|DeployPackages|Reading Hoteli from source without metadata.
+2019-03-06 14:32:38.6256|TRACE|Packages|Hoteli 0.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\src.
+2019-03-06 14:32:38.6256|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Hoteli\dist\HoteliRhetosServer.
+2019-03-06 14:32:38.6256|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-06 14:32:38.6256|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-06 14:32:38.7324|TRACE|DeployPackages|Loading plugins.
+2019-03-06 14:32:39.1493|TRACE|DeployPackages|SQL connection: DataSource=SBMATIC-PC\MATIC, InitialCatalog=Hoteli
+2019-03-06 14:32:39.1962|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-06 14:32:39.3121|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-06 14:32:39.3812|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: At line 28, column 58, file 'D:\Hoteli\src\DslScripts\Hoteli.rhe',
+after: "...lefon { Required; } ShortString Email { RegExMatch "[-\.\w]+@[-\.\w]+"",
+before: "} } Entity GostPrijatelj { Extends Hoteli.Gost; ShortString KodPopu...".
+Previous concept: RegExMatch Hoteli.Gost.Email
+Property Property (PropertyInfo) = Hoteli.Gost.Email
+Property RegularExpression (String) = [-\.\w]+@[-\.\w]+
+Property ErrorMessage (String) = <null>
+Expected ";" or "{".
+   at Rhetos.Dsl.DslParser.UpdateContextForNextConcept(TokenReader tokenReader, Stack`1 context, IConceptInfo conceptInfo) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 208
+   at Rhetos.Dsl.DslParser.ExtractConcepts(MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 107
+   at Rhetos.Dsl.DslParser.GetConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 54
+   at Rhetos.Dsl.DslParser.get_ParsedConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 47
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 114
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-06 14:33:54.3180|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-06 14:33:54.3805|TRACE|DeployPackages|Getting packages.
+2019-03-06 14:33:54.3870|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 14:33:56.4566|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-06 14:33:56.6728|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-06 14:33:56.6950|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 14:33:57.0274|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-06 14:33:57.0430|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-06 14:33:57.0430|TRACE|PackageDownloader|Reading package Hoteli from unpacked source folder without metadata file.
+2019-03-06 14:33:57.0430|TRACE|DeployPackages|Reading Hoteli from source without metadata.
+2019-03-06 14:33:57.0964|TRACE|Packages|Hoteli 0.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\src.
+2019-03-06 14:33:57.0964|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Hoteli\dist\HoteliRhetosServer.
+2019-03-06 14:33:57.0964|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-06 14:33:57.0964|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-06 14:33:57.1120|TRACE|DeployPackages|Loading plugins.
+2019-03-06 14:33:57.5302|TRACE|DeployPackages|SQL connection: DataSource=SBMATIC-PC\MATIC, InitialCatalog=Hoteli
+2019-03-06 14:33:57.5639|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-06 14:33:57.6798|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-06 14:33:57.7266|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: Invalid parameters after keyword 'Log'. At line 53, column 11, file 'D:\Hoteli\src\DslScripts\Hoteli.rhe',
+after: "...eOd != null && item.VrijemeDo.Value < item.VrijemeOd.Value'; Logging {",
+before: "Log Soba; } } Entity GostRezervacija { Reference Rezervacija; Refer...".
+
+Possible causes:
+GenericParser: Cannot read the value of Property in PropertyLoggingInfo. Cannot read the value of DataStructure in PropertyInfo. Cannot read the value of Name in DataStructureInfo. Parent property and the following key value (Name) must be separated with a dot. Expected "."
+At line 53, column 11, file 'D:\Hoteli\src\DslScripts\Hoteli.rhe',
+after: "...eOd != null && item.VrijemeDo.Value < item.VrijemeOd.Value'; Logging {",
+before: "Log Soba; } } Entity GostRezervacija { Reference Rezervacij...
+   at Rhetos.Dsl.DslParser.ParseNextConcept(TokenReader tokenReader, Stack`1 context, MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 160
+   at Rhetos.Dsl.DslParser.ExtractConcepts(MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 104
+   at Rhetos.Dsl.DslParser.GetConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 54
+   at Rhetos.Dsl.DslParser.get_ParsedConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 47
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 114
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-06 14:35:37.0338|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-06 14:35:37.0963|TRACE|DeployPackages|Getting packages.
+2019-03-06 14:35:37.1028|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 14:35:39.0816|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-06 14:35:39.2916|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-06 14:35:39.3136|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 14:35:39.6108|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-06 14:35:39.6238|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-06 14:35:39.6238|TRACE|PackageDownloader|Reading package Hoteli from unpacked source folder without metadata file.
+2019-03-06 14:35:39.6238|TRACE|DeployPackages|Reading Hoteli from source without metadata.
+2019-03-06 14:35:39.6728|TRACE|Packages|Hoteli 0.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\src.
+2019-03-06 14:35:39.6728|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Hoteli\dist\HoteliRhetosServer.
+2019-03-06 14:35:39.6728|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-06 14:35:39.6728|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-06 14:35:39.6978|TRACE|DeployPackages|Loading plugins.
+2019-03-06 14:35:40.1308|TRACE|DeployPackages|SQL connection: DataSource=SBMATIC-PC\MATIC, InitialCatalog=Hoteli
+2019-03-06 14:35:40.2263|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-06 14:35:41.4920|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-06 14:35:41.5449|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: At line 66, column 47, file 'D:\Hoteli\src\DslScripts\Hoteli.rhe',
+after: "...un { Decimal Iznos {Required;} Integer Popust {MinValue 1; MaxValue 20",
+before: "} Bool Placeno; Reference Rezervacija; } Entity Usluga { ShortStrin...".
+Previous concept: MaxValue Hoteli.Racun.Popust
+Property Property (PropertyInfo) = Hoteli.Racun.Popust
+Property Value (String) = 20
+Expected ";" or "{".
+   at Rhetos.Dsl.DslParser.UpdateContextForNextConcept(TokenReader tokenReader, Stack`1 context, IConceptInfo conceptInfo) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 208
+   at Rhetos.Dsl.DslParser.ExtractConcepts(MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 107
+   at Rhetos.Dsl.DslParser.GetConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 54
+   at Rhetos.Dsl.DslParser.get_ParsedConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 47
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 114
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-06 14:36:02.2159|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-06 14:36:02.2785|TRACE|DeployPackages|Getting packages.
+2019-03-06 14:36:02.2941|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 14:36:04.1376|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-06 14:36:04.3543|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-06 14:36:04.3855|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 14:36:04.7110|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-06 14:36:04.7240|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-06 14:36:04.7240|TRACE|PackageDownloader|Reading package Hoteli from unpacked source folder without metadata file.
+2019-03-06 14:36:04.7240|TRACE|DeployPackages|Reading Hoteli from source without metadata.
+2019-03-06 14:36:04.7709|TRACE|Packages|Hoteli 0.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\src.
+2019-03-06 14:36:04.7709|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Hoteli\dist\HoteliRhetosServer.
+2019-03-06 14:36:04.7866|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-06 14:36:04.7866|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-06 14:36:04.8022|TRACE|DeployPackages|Loading plugins.
+2019-03-06 14:36:05.2243|TRACE|DeployPackages|SQL connection: DataSource=SBMATIC-PC\MATIC, InitialCatalog=Hoteli
+2019-03-06 14:36:05.2555|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-06 14:36:05.3246|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-06 14:36:05.5408|TRACE|DeployPackages|Application model has 621 statements.
+2019-03-06 14:36:05.5408|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-06 14:36:05.6968|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Model.dll.
+2019-03-06 14:36:05.9266|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Orm.dll.
+2019-03-06 14:36:05.9579|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-03-06 14:36:06.3057|ERROR|DeployPackages|Rhetos.FrameworkException: 1 errors while compiling 'ServerDom.Repositories.cs':
+
+The type or namespace name 'CommonMisspelled' could not be found (are you missing a using directive or an assembly reference?)
+At line 684, column 65, file 'D:\Hoteli\dist\HoteliRhetosServer\bin\Generated\ServerDom.Repositories.cs',
+after: "...nSave) { if (onSave) { var errorIds = this.Filter(this.Query(ids), new",
+before: "CommonMisspelled()).Select(item => item.ID).ToArray(); if (errorIds...".
+   at Rhetos.Compiler.AssemblyGenerator.FailOnCompilerErrors(CompilerResults compilerResults, String sourceCode, String sourcePath) in C:\My Projects\Rhetos\Source\Rhetos.Compiler\AssemblyGenerator.cs:line 140
+   at Rhetos.Compiler.AssemblyGenerator.Generate(IAssemblySource assemblySource, CompilerParameters compilerParameters) in C:\My Projects\Rhetos\Source\Rhetos.Compiler\AssemblyGenerator.cs:line 98
+   at Rhetos.Dom.DomGenerator.GenerateObjectModel() in C:\My Projects\Rhetos\Source\Rhetos.Dom\DomGenerator.cs:line 91
+   at Rhetos.Dom.DomGenerator.get_Assemblies() in C:\My Projects\Rhetos\Source\Rhetos.Dom\DomGenerator.cs:line 70
+   at Rhetos.Dom.DomainObjectModelExtensions.GetTypes(IDomainObjectModel dom) in C:\My Projects\Rhetos\Source\Rhetos.Dom.Interfaces\IDomainObjectModel.cs:line 51
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 87
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-06 14:38:37.7589|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-06 14:38:37.8371|TRACE|DeployPackages|Getting packages.
+2019-03-06 14:38:37.8592|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 14:38:39.7539|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-06 14:38:39.9389|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-06 14:38:39.9611|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 14:38:40.3128|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-06 14:38:40.3283|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-06 14:38:40.3283|TRACE|PackageDownloader|Reading package Hoteli from unpacked source folder without metadata file.
+2019-03-06 14:38:40.3283|TRACE|DeployPackages|Reading Hoteli from source without metadata.
+2019-03-06 14:38:40.3621|TRACE|Packages|Hoteli 0.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\src.
+2019-03-06 14:38:40.3621|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Hoteli\dist\HoteliRhetosServer.
+2019-03-06 14:38:40.3777|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-06 14:38:40.3777|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-06 14:38:40.3934|TRACE|DeployPackages|Loading plugins.
+2019-03-06 14:38:40.7946|TRACE|DeployPackages|SQL connection: DataSource=SBMATIC-PC\MATIC, InitialCatalog=Hoteli
+2019-03-06 14:38:40.8258|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-06 14:38:40.9105|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-06 14:38:41.1267|TRACE|DeployPackages|Application model has 620 statements.
+2019-03-06 14:38:41.1267|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-06 14:38:41.2583|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Model.dll.
+2019-03-06 14:38:41.2648|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Orm.dll.
+2019-03-06 14:38:41.2961|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-03-06 14:38:41.6660|TRACE|DeployPackages|Generated 183 types.
+2019-03-06 14:38:41.6660|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-03-06 14:38:41.6816|TRACE|DeployPackages|Executing RestGenerator.
+2019-03-06 14:38:41.7129|TRACE|AssemblyGenerator|Compiling assembly: RestService.dll.
+2019-03-06 14:38:42.0450|INFO|AssemblyGenerator|Warning CS1701: Assuming assembly reference 'Autofac, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da' matches 'Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da', you may need to supply runtime policy.
+2019-03-06 14:38:42.0450|INFO|AssemblyGenerator|100 warnings CS0618: 'Rhetos.LegacyClientException' is obsolete: 'Use ClientException instead.'. At line 266, column 34, file 'd:\Hoteli\dist\HoteliRhetosServer\bin\Generated\RestService.cs'.
+2019-03-06 14:38:42.0450|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-03-06 14:38:43.0011|TRACE|DeployPackages|Cleaning old migration data.
+2019-03-06 14:38:43.0323|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 8 remaining.
+2019-03-06 14:38:43.0479|TRACE|DeployPackages|Executing data migration scripts.
+2019-03-06 14:38:43.0701|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-03-06 14:38:43.0701|TRACE|DeployPackages|Upgrading database.
+2019-03-06 14:38:43.2173|TRACE|DeployPackages|DatabaseGenerator removing 0 concept applications.
+2019-03-06 14:38:43.2173|TRACE|DatabaseGenerator Concepts|Creating EntityLoggingInfo Hoteli.Gost/Rhetos.DatabaseGenerator.DefaultConcepts.EntityLoggingDefinition, ID=B69C0BB7-FC46-4280-94C2-85B8ADE86C8C.
+2019-03-06 14:38:43.2329|TRACE|DatabaseGenerator Concepts|Creating EntityLoggingInfo Hoteli.Rezervacija/Rhetos.DatabaseGenerator.DefaultConcepts.EntityLoggingDefinition, ID=A0E40873-E30D-4FB0-9955-37095B60111F.
+2019-03-06 14:38:43.2329|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo Hoteli.Stavka.BrojStavke/Rhetos.DatabaseGenerator.DefaultConcepts.ShortStringPropertyDatabaseDefinition, ID=7CD4F5C1-9A5F-4C34-BAFC-83B8BA7CDC62.
+2019-03-06 14:38:43.2329|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo Hoteli.Stavka.BrojStavke/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=B6E46FA3-1B41-4FB3-8A29-1B17E6E3DA52.
+2019-03-06 14:38:43.2329|INFO|DeployPackages|DatabaseGenerator creating 4 concept applications.
+2019-03-06 14:38:43.2863|TRACE|DeployPackages|Deleting redundant migration data.
+2019-03-06 14:38:43.3019|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 8 remaining.
+2019-03-06 14:38:43.3019|TRACE|DeployPackages|Uploading DSL scripts.
+2019-03-06 14:38:43.3019|TRACE|DeployPackages|Uploaded 7 DSL scripts to database.
+2019-03-06 14:38:43.3176|TRACE|DeployPackages|Loading generated plugins.
+2019-03-06 14:38:43.4335|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-03-06 14:38:44.6496|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-03-06 14:38:44.7997|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-03-06 14:38:44.7997|TRACE|DeployPackages|Done.
+2019-03-06 15:21:28.7026|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-06 15:21:28.8497|TRACE|DeployPackages|Getting packages.
+2019-03-06 15:21:28.8719|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 15:21:30.9110|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-06 15:21:31.1272|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-06 15:21:31.1429|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 15:21:31.5561|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-06 15:21:31.5717|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-06 15:21:31.5717|TRACE|PackageDownloader|Reading package Hoteli from unpacked source folder without metadata file.
+2019-03-06 15:21:31.5717|TRACE|DeployPackages|Reading Hoteli from source without metadata.
+2019-03-06 15:21:31.6216|TRACE|Packages|Hoteli 0.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\src.
+2019-03-06 15:21:31.6216|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Hoteli\dist\HoteliRhetosServer.
+2019-03-06 15:21:31.6216|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-06 15:21:31.6216|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-06 15:21:31.6372|TRACE|DeployPackages|Loading plugins.
+2019-03-06 15:21:32.0539|TRACE|DeployPackages|SQL connection: DataSource=SBMATIC-PC\MATIC, InitialCatalog=Hoteli
+2019-03-06 15:21:32.0917|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-06 15:21:32.1698|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-06 15:21:32.2232|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: At line 28, column 3, file 'D:\Hoteli\src\DslScripts\Hoteli.rhe',
+after: "...a s inner join Hoteli.Rezervacija r ON r.SobaID = s.ID group by s.ID "",
+before: "Entity Soba { ShortString NazivSobe; Reference Hotel; Reference Tip...".
+Previous concept: SqlQueryable Hoteli.HotelRezervacijeZaSobu
+Property SqlSource (String) = 
+      SELECT 
+        s.ID,
+        BrojRezervacija = COUNT(r.ID)    
+      FROM Hoteli.Soba s
+      inner join Hoteli.Rezervacija r ON r.SobaID = s.ID
+       group by s.ID
+  
+Property Module (ModuleInfo) = Hoteli
+Property Name (String) = HotelRezervacijeZaSobu
+Expected ";" or "{".
+   at Rhetos.Dsl.DslParser.UpdateContextForNextConcept(TokenReader tokenReader, Stack`1 context, IConceptInfo conceptInfo) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 208
+   at Rhetos.Dsl.DslParser.ExtractConcepts(MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 107
+   at Rhetos.Dsl.DslParser.GetConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 54
+   at Rhetos.Dsl.DslParser.get_ParsedConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 47
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 114
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-06 15:24:19.4672|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-06 15:24:19.5297|TRACE|DeployPackages|Getting packages.
+2019-03-06 15:24:19.5453|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 15:24:21.4916|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-06 15:24:21.6922|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-06 15:24:21.7078|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 15:24:22.0396|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-06 15:24:22.0552|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-06 15:24:22.0552|TRACE|PackageDownloader|Reading package Hoteli from unpacked source folder without metadata file.
+2019-03-06 15:24:22.0552|TRACE|DeployPackages|Reading Hoteli from source without metadata.
+2019-03-06 15:24:22.0930|TRACE|Packages|Hoteli 0.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\src.
+2019-03-06 15:24:22.0930|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Hoteli\dist\HoteliRhetosServer.
+2019-03-06 15:24:22.0930|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-06 15:24:22.0930|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-06 15:24:22.1243|TRACE|DeployPackages|Loading plugins.
+2019-03-06 15:24:22.5254|TRACE|DeployPackages|SQL connection: DataSource=SBMATIC-PC\MATIC, InitialCatalog=Hoteli
+2019-03-06 15:24:22.5566|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-06 15:24:22.5944|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-06 15:24:22.8192|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: Take Hoteli.HotelGrid.SobaNazivSobe: Invalid path: There is no property 'Soba' on Entity Hoteli.Hotel.
+   at Rhetos.Dsl.DefaultConcepts.DslUtility.ValidatePath(DataStructureInfo source, String path, IDslModel existingConcepts, IConceptInfo errorContext) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Dsl.DefaultConcepts\DslUtility.cs:line 120
+   at Rhetos.Dsl.DefaultConcepts.BrowseTakeNamedPropertyInfo.CheckSemantics(IDslModel existingConcepts) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Dsl.DefaultConcepts\SimpleBusinessLogic\BrowseTakeNamedPropertyInfo.cs:line 44
+   at Rhetos.Dsl.DslModel.<>c__DisplayClass32_1.<CheckSemantics>b__1() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 364
+   at Rhetos.Dsl.DslModel.CheckSemantics() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 373
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 118
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-06 15:25:55.0633|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-06 15:25:55.1227|TRACE|DeployPackages|Getting packages.
+2019-03-06 15:25:55.1457|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 15:25:57.1160|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-06 15:25:57.3306|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-06 15:25:57.3462|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 15:25:57.7635|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-06 15:25:57.7791|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-06 15:25:57.7791|TRACE|PackageDownloader|Reading package Hoteli from unpacked source folder without metadata file.
+2019-03-06 15:25:57.7791|TRACE|DeployPackages|Reading Hoteli from source without metadata.
+2019-03-06 15:25:57.8325|TRACE|Packages|Hoteli 0.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\src.
+2019-03-06 15:25:57.8325|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Hoteli\dist\HoteliRhetosServer.
+2019-03-06 15:25:57.8325|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-06 15:25:57.8325|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-06 15:25:57.8481|TRACE|DeployPackages|Loading plugins.
+2019-03-06 15:25:58.2493|TRACE|DeployPackages|SQL connection: DataSource=SBMATIC-PC\MATIC, InitialCatalog=Hoteli
+2019-03-06 15:25:58.2806|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-06 15:25:58.3184|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-06 15:25:58.4968|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: Take Hoteli.HotelGrid.HoteliHotelRezervacijeZaSobuBrojRezervacija: Invalid path: There is no property 'Hoteli' on Entity Hoteli.Soba.
+   at Rhetos.Dsl.DefaultConcepts.DslUtility.ValidatePath(DataStructureInfo source, String path, IDslModel existingConcepts, IConceptInfo errorContext) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Dsl.DefaultConcepts\DslUtility.cs:line 120
+   at Rhetos.Dsl.DefaultConcepts.BrowseTakeNamedPropertyInfo.CheckSemantics(IDslModel existingConcepts) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Dsl.DefaultConcepts\SimpleBusinessLogic\BrowseTakeNamedPropertyInfo.cs:line 44
+   at Rhetos.Dsl.DslModel.<>c__DisplayClass32_1.<CheckSemantics>b__1() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 364
+   at Rhetos.Dsl.DslModel.CheckSemantics() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 373
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 118
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-06 15:28:01.7613|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-06 15:28:01.8147|TRACE|DeployPackages|Getting packages.
+2019-03-06 15:28:01.8303|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 15:28:03.7942|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-06 15:28:04.0033|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-06 15:28:04.0242|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-06 15:28:04.4872|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-06 15:28:04.4872|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-06 15:28:04.4872|TRACE|PackageDownloader|Reading package Hoteli from unpacked source folder without metadata file.
+2019-03-06 15:28:04.5029|TRACE|DeployPackages|Reading Hoteli from source without metadata.
+2019-03-06 15:28:04.5406|TRACE|Packages|Hoteli 0.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\src.
+2019-03-06 15:28:04.5406|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Hoteli\dist\HoteliRhetosServer.
+2019-03-06 15:28:04.5406|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-06 15:28:04.5406|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-06 15:28:04.5563|TRACE|DeployPackages|Loading plugins.
+2019-03-06 15:28:04.9572|TRACE|DeployPackages|SQL connection: DataSource=SBMATIC-PC\MATIC, InitialCatalog=Hoteli
+2019-03-06 15:28:04.9884|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-06 15:28:05.0263|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-06 15:28:05.0888|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: Invalid parameters after keyword 'Extends'. At line 40, column 7, file 'D:\Hoteli\src\DslScripts\Hoteli.rhe',
+after: "...tity Soba { ShortString NazivSobe; Reference Hotel; Reference TipSobe;",
+before: "Extends HotelRezervacijeZaSobu; } Entity Gost { Logging { Allproper...".
+
+Possible causes:
+GenericParser: Cannot read the value of Base in DataStructureExtendsInfo. Cannot read the value of Name in DataStructureInfo. Parent property and the following key value (Name) must be separated with a dot. Expected "."
+At line 40, column 7, file 'D:\Hoteli\src\DslScripts\Hoteli.rhe',
+after: "...tity Soba { ShortString NazivSobe; Reference Hotel; Reference TipSobe;",
+before: "Extends HotelRezervacijeZaSobu; } Entity Gost { Logging { Allproper...".
+   at Rhetos.Dsl.DslParser.ParseNextConcept(TokenReader tokenReader, Stack`1 context, MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 160
+   at Rhetos.Dsl.DslParser.ExtractConcepts(MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 104
+   at Rhetos.Dsl.DslParser.GetConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 54
+   at Rhetos.Dsl.DslParser.get_ParsedConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 47
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 114
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 

@@ -1,0 +1,12 @@
+2019-03-06 15:28:01.8147|TRACE|Performance|00:00:00.0069925 FileSyncer.UpdateDestination 2 destinations, 2 moved.
+2019-03-06 15:28:03.7942|TRACE|Performance|00:00:01.9454036 PackageDownloader: Found the NuGet package Rhetos.CommonConcepts (version not specified) at https://www.nuget.org/api/v2/.
+2019-03-06 15:28:04.0033|TRACE|Performance|00:00:00.2074947 PackageDownloader: Installed NuGet package Rhetos.CommonConcepts.
+2019-03-06 15:28:04.4872|TRACE|Performance|00:00:00.4605206 PackageDownloader: Found the NuGet package Rhetos.RestGenerator (version not specified) at https://www.nuget.org/api/v2/.
+2019-03-06 15:28:04.4872|TRACE|Performance|00:00:00.0132407 PackageDownloader: Installed NuGet package Rhetos.RestGenerator.
+2019-03-06 15:28:04.5029|TRACE|Performance|00:00:00.0004623 PackageDownloader.DeleteObsoletePackages
+2019-03-06 15:28:04.5406|TRACE|Performance|00:00:00.0347029 FileSyncer.UpdateDestination 2 destinations, 20 copied.
+2019-03-06 15:28:04.5406|TRACE|Performance|00:00:02.7161489 PackageDownloader.GetPackages.
+2019-03-06 15:28:04.5875|TRACE|Performance|00:00:00.0007359 MefPluginScanner: Listed assemblies (7).
+2019-03-06 15:28:04.7097|TRACE|Performance|00:00:00.1186020 MefPluginScanner: Loaded plugins (506).
+2019-03-06 15:28:04.7878|TRACE|Performance|00:00:00.2341301 DeployPackages.Program: Modules and plugins registered.
+2019-03-06 15:28:05.0575|TRACE|Performance|00:00:00.0195234 DslParser.CreateGenericParsers.

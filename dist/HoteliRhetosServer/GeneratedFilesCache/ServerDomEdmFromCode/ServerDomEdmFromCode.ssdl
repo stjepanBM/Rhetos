@@ -1,0 +1,625 @@
+﻿      <Schema Namespace="CodeFirstDatabaseSchema" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Common_AutoCodeCache">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Entity" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Property" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Grouping" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Prefix" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="MinDigits" Type="int" Nullable="true" />
+          <Property Name="LastCode" Type="int" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Common_Claim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ClaimResource" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="ClaimRight" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Active" Type="bit" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Common_ExclusiveLock">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ResourceType" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="ResourceID" Type="uniqueidentifier" Nullable="true" />
+          <Property Name="UserName" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Workstation" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="LockStart" Type="datetime" Nullable="true" />
+          <Property Name="LockFinish" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Common_FilterId">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Handle" Type="uniqueidentifier" Nullable="true" />
+          <Property Name="Value" Type="uniqueidentifier" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Common_KeepSynchronizedMetadata">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Target" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Source" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Context" Type="nvarchar(max)" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Common_Log">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="true" />
+          <Property Name="UserName" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Workstation" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="ContextInfo" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Action" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="TableName" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="ItemId" Type="uniqueidentifier" Nullable="true" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Common_LogReader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Workstation" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="ContextInfo" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Action" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="TableName" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Created" Type="datetime" Nullable="true" />
+          <Property Name="ItemId" Type="uniqueidentifier" Nullable="true" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Common_LogRelatedItem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LogID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_LogID, Order: 0 }" Nullable="true" />
+          <Property Name="TableName" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="ItemId" Type="uniqueidentifier" Nullable="true" />
+          <Property Name="Relation" Type="nvarchar(max)" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Common_LogRelatedItemReader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TableName" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Relation" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="LogID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_LogID, Order: 0 }" Nullable="true" />
+          <Property Name="ItemId" Type="uniqueidentifier" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Common_Principal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Common_PrincipalHasRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PrincipalID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_PrincipalID, Order: 0 }" Nullable="true" />
+          <Property Name="RoleID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_RoleID, Order: 0 }" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Common_Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Common_PrincipalPermission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PrincipalID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_PrincipalID, Order: 0 }" Nullable="true" />
+          <Property Name="ClaimID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_ClaimID, Order: 0 }" Nullable="true" />
+          <Property Name="IsAuthorized" Type="bit" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Common_RelatedEventsSource">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LogID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_LogID, Order: 0 }" Nullable="true" />
+          <Property Name="Relation" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="RelatedToTable" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="RelatedToItem" Type="uniqueidentifier" Nullable="true" />
+          <Property Name="UserName" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Workstation" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="ContextInfo" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Action" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="TableName" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Created" Type="datetime" Nullable="true" />
+          <Property Name="ItemId" Type="uniqueidentifier" Nullable="true" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Common_RoleInheritsRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UsersFromID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_UsersFromID, Order: 0 }" Nullable="true" />
+          <Property Name="PermissionsFromID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_PermissionsFromID, Order: 0 }" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Common_RolePermission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_RoleID, Order: 0 }" Nullable="true" />
+          <Property Name="ClaimID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_ClaimID, Order: 0 }" Nullable="true" />
+          <Property Name="IsAuthorized" Type="bit" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Hoteli_Gost">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Ime" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Prezime" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Telefon" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Hoteli_GostPoslovno">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_ID, Order: 0 }" Nullable="false" />
+          <Property Name="Pozicija" Type="nvarchar(max)" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Hoteli_GostPrijatelj">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_ID, Order: 0 }" Nullable="false" />
+          <Property Name="KodPopust" Type="nvarchar(max)" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Hoteli_GostRezervacija">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RezervacijaID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_RezervacijaID, Order: 0 }" Nullable="true" />
+          <Property Name="GostID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_GostID, Order: 0 }" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Hoteli_Rezervacija">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VrijemeOd" Type="datetime" Nullable="true" />
+          <Property Name="VrijemeDo" Type="datetime" Nullable="true" />
+          <Property Name="SobaID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_SobaID, Order: 0 }" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Hoteli_Soba">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NazivSobe" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="HotelID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_HotelID, Order: 0 }" Nullable="true" />
+          <Property Name="TipSobeID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_TipSobeID, Order: 0 }" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Hoteli_Hotel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NazivHotela" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="AdresaHotela" Type="nvarchar(max)" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Hoteli_TipSobe">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NazivTipa" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="CijenaTipa" Type="decimal" Precision="28" Scale="10" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Hoteli_Racun">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Iznos" Type="decimal" Precision="28" Scale="10" Nullable="true" />
+          <Property Name="Popust" Type="int" Nullable="true" />
+          <Property Name="Placeno" Type="bit" Nullable="true" />
+          <Property Name="RezervacijaID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_RezervacijaID, Order: 0 }" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Hoteli_Stavka">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BrojStavke" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="NazivStavke" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="UslugaID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_UslugaID, Order: 0 }" Nullable="true" />
+          <Property Name="RacunID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_RacunID, Order: 0 }" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Hoteli_Usluga">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NazivUsluge" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="CijenaUsluge" Type="decimal" Precision="28" Scale="10" Nullable="true" />
+        </EntityType>
+        <Association Name="Common_LogRelatedItem_Log">
+          <End Role="Common_Log" Type="Self.Common_Log" Multiplicity="0..1" />
+          <End Role="Common_LogRelatedItem" Type="Self.Common_LogRelatedItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Common_Log">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Common_LogRelatedItem">
+              <PropertyRef Name="LogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Common_LogRelatedItemReader_Log">
+          <End Role="Common_Log" Type="Self.Common_Log" Multiplicity="0..1" />
+          <End Role="Common_LogRelatedItemReader" Type="Self.Common_LogRelatedItemReader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Common_Log">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Common_LogRelatedItemReader">
+              <PropertyRef Name="LogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Common_PrincipalHasRole_Principal">
+          <End Role="Common_Principal" Type="Self.Common_Principal" Multiplicity="0..1" />
+          <End Role="Common_PrincipalHasRole" Type="Self.Common_PrincipalHasRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Common_Principal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Common_PrincipalHasRole">
+              <PropertyRef Name="PrincipalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Common_PrincipalHasRole_Role">
+          <End Role="Common_Role" Type="Self.Common_Role" Multiplicity="0..1" />
+          <End Role="Common_PrincipalHasRole" Type="Self.Common_PrincipalHasRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Common_Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Common_PrincipalHasRole">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Common_PrincipalPermission_Claim">
+          <End Role="Common_Claim" Type="Self.Common_Claim" Multiplicity="0..1" />
+          <End Role="Common_PrincipalPermission" Type="Self.Common_PrincipalPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Common_Claim">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Common_PrincipalPermission">
+              <PropertyRef Name="ClaimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Common_PrincipalPermission_Principal">
+          <End Role="Common_Principal" Type="Self.Common_Principal" Multiplicity="0..1" />
+          <End Role="Common_PrincipalPermission" Type="Self.Common_PrincipalPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Common_Principal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Common_PrincipalPermission">
+              <PropertyRef Name="PrincipalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Common_RelatedEventsSource_Log">
+          <End Role="Common_LogReader" Type="Self.Common_LogReader" Multiplicity="0..1" />
+          <End Role="Common_RelatedEventsSource" Type="Self.Common_RelatedEventsSource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Common_LogReader">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Common_RelatedEventsSource">
+              <PropertyRef Name="LogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Common_RoleInheritsRole_PermissionsFrom">
+          <End Role="Common_Role" Type="Self.Common_Role" Multiplicity="0..1" />
+          <End Role="Common_RoleInheritsRole" Type="Self.Common_RoleInheritsRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Common_Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Common_RoleInheritsRole">
+              <PropertyRef Name="PermissionsFromID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Common_RoleInheritsRole_UsersFrom">
+          <End Role="Common_Role" Type="Self.Common_Role" Multiplicity="0..1" />
+          <End Role="Common_RoleInheritsRole" Type="Self.Common_RoleInheritsRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Common_Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Common_RoleInheritsRole">
+              <PropertyRef Name="UsersFromID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Common_RolePermission_Claim">
+          <End Role="Common_Claim" Type="Self.Common_Claim" Multiplicity="0..1" />
+          <End Role="Common_RolePermission" Type="Self.Common_RolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Common_Claim">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Common_RolePermission">
+              <PropertyRef Name="ClaimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Common_RolePermission_Role">
+          <End Role="Common_Role" Type="Self.Common_Role" Multiplicity="0..1" />
+          <End Role="Common_RolePermission" Type="Self.Common_RolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Common_Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Common_RolePermission">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hoteli_GostPoslovno_Base">
+          <End Role="Hoteli_Gost" Type="Self.Hoteli_Gost" Multiplicity="1" />
+          <End Role="Hoteli_GostPoslovno" Type="Self.Hoteli_GostPoslovno" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Hoteli_Gost">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Hoteli_GostPoslovno">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hoteli_GostPrijatelj_Base">
+          <End Role="Hoteli_Gost" Type="Self.Hoteli_Gost" Multiplicity="1" />
+          <End Role="Hoteli_GostPrijatelj" Type="Self.Hoteli_GostPrijatelj" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Hoteli_Gost">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Hoteli_GostPrijatelj">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hoteli_GostRezervacija_Gost">
+          <End Role="Hoteli_Gost" Type="Self.Hoteli_Gost" Multiplicity="0..1" />
+          <End Role="Hoteli_GostRezervacija" Type="Self.Hoteli_GostRezervacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hoteli_Gost">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Hoteli_GostRezervacija">
+              <PropertyRef Name="GostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hoteli_Soba_Hotel">
+          <End Role="Hoteli_Hotel" Type="Self.Hoteli_Hotel" Multiplicity="0..1" />
+          <End Role="Hoteli_Soba" Type="Self.Hoteli_Soba" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hoteli_Hotel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Hoteli_Soba">
+              <PropertyRef Name="HotelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hoteli_Soba_TipSobe">
+          <End Role="Hoteli_TipSobe" Type="Self.Hoteli_TipSobe" Multiplicity="0..1" />
+          <End Role="Hoteli_Soba" Type="Self.Hoteli_Soba" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hoteli_TipSobe">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Hoteli_Soba">
+              <PropertyRef Name="TipSobeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hoteli_Rezervacija_Soba">
+          <End Role="Hoteli_Soba" Type="Self.Hoteli_Soba" Multiplicity="0..1" />
+          <End Role="Hoteli_Rezervacija" Type="Self.Hoteli_Rezervacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hoteli_Soba">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Hoteli_Rezervacija">
+              <PropertyRef Name="SobaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hoteli_GostRezervacija_Rezervacija">
+          <End Role="Hoteli_Rezervacija" Type="Self.Hoteli_Rezervacija" Multiplicity="0..1" />
+          <End Role="Hoteli_GostRezervacija" Type="Self.Hoteli_GostRezervacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hoteli_Rezervacija">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Hoteli_GostRezervacija">
+              <PropertyRef Name="RezervacijaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hoteli_Racun_Rezervacija">
+          <End Role="Hoteli_Rezervacija" Type="Self.Hoteli_Rezervacija" Multiplicity="0..1" />
+          <End Role="Hoteli_Racun" Type="Self.Hoteli_Racun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hoteli_Rezervacija">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Hoteli_Racun">
+              <PropertyRef Name="RezervacijaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hoteli_Stavka_Racun">
+          <End Role="Hoteli_Racun" Type="Self.Hoteli_Racun" Multiplicity="0..1" />
+          <End Role="Hoteli_Stavka" Type="Self.Hoteli_Stavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hoteli_Racun">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Hoteli_Stavka">
+              <PropertyRef Name="RacunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hoteli_Stavka_Usluga">
+          <End Role="Hoteli_Usluga" Type="Self.Hoteli_Usluga" Multiplicity="0..1" />
+          <End Role="Hoteli_Stavka" Type="Self.Hoteli_Stavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hoteli_Usluga">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Hoteli_Stavka">
+              <PropertyRef Name="UslugaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CodeFirstDatabase">
+          <EntitySet Name="Common_AutoCodeCache" EntityType="Self.Common_AutoCodeCache" Schema="Common" Table="AutoCodeCache" />
+          <EntitySet Name="Common_Claim" EntityType="Self.Common_Claim" Schema="Common" Table="Claim" />
+          <EntitySet Name="Common_ExclusiveLock" EntityType="Self.Common_ExclusiveLock" Schema="Common" Table="ExclusiveLock" />
+          <EntitySet Name="Common_FilterId" EntityType="Self.Common_FilterId" Schema="Common" Table="FilterId" />
+          <EntitySet Name="Common_KeepSynchronizedMetadata" EntityType="Self.Common_KeepSynchronizedMetadata" Schema="Common" Table="KeepSynchronizedMetadata" />
+          <EntitySet Name="Common_Log" EntityType="Self.Common_Log" Schema="Common" Table="Log" />
+          <EntitySet Name="Common_LogReader" EntityType="Self.Common_LogReader" Schema="Common" Table="LogReader" />
+          <EntitySet Name="Common_LogRelatedItem" EntityType="Self.Common_LogRelatedItem" Schema="Common" Table="LogRelatedItem" />
+          <EntitySet Name="Common_LogRelatedItemReader" EntityType="Self.Common_LogRelatedItemReader" Schema="Common" Table="LogRelatedItemReader" />
+          <EntitySet Name="Common_Principal" EntityType="Self.Common_Principal" Schema="Common" Table="Principal" />
+          <EntitySet Name="Common_PrincipalHasRole" EntityType="Self.Common_PrincipalHasRole" Schema="Common" Table="PrincipalHasRole" />
+          <EntitySet Name="Common_Role" EntityType="Self.Common_Role" Schema="Common" Table="Role" />
+          <EntitySet Name="Common_PrincipalPermission" EntityType="Self.Common_PrincipalPermission" Schema="Common" Table="PrincipalPermission" />
+          <EntitySet Name="Common_RelatedEventsSource" EntityType="Self.Common_RelatedEventsSource" Schema="Common" Table="RelatedEventsSource" />
+          <EntitySet Name="Common_RoleInheritsRole" EntityType="Self.Common_RoleInheritsRole" Schema="Common" Table="RoleInheritsRole" />
+          <EntitySet Name="Common_RolePermission" EntityType="Self.Common_RolePermission" Schema="Common" Table="RolePermission" />
+          <EntitySet Name="Hoteli_Gost" EntityType="Self.Hoteli_Gost" Schema="Hoteli" Table="Gost" />
+          <EntitySet Name="Hoteli_GostPoslovno" EntityType="Self.Hoteli_GostPoslovno" Schema="Hoteli" Table="GostPoslovno" />
+          <EntitySet Name="Hoteli_GostPrijatelj" EntityType="Self.Hoteli_GostPrijatelj" Schema="Hoteli" Table="GostPrijatelj" />
+          <EntitySet Name="Hoteli_GostRezervacija" EntityType="Self.Hoteli_GostRezervacija" Schema="Hoteli" Table="GostRezervacija" />
+          <EntitySet Name="Hoteli_Rezervacija" EntityType="Self.Hoteli_Rezervacija" Schema="Hoteli" Table="Rezervacija" />
+          <EntitySet Name="Hoteli_Soba" EntityType="Self.Hoteli_Soba" Schema="Hoteli" Table="Soba" />
+          <EntitySet Name="Hoteli_Hotel" EntityType="Self.Hoteli_Hotel" Schema="Hoteli" Table="Hotel" />
+          <EntitySet Name="Hoteli_TipSobe" EntityType="Self.Hoteli_TipSobe" Schema="Hoteli" Table="TipSobe" />
+          <EntitySet Name="Hoteli_Racun" EntityType="Self.Hoteli_Racun" Schema="Hoteli" Table="Racun" />
+          <EntitySet Name="Hoteli_Stavka" EntityType="Self.Hoteli_Stavka" Schema="Hoteli" Table="Stavka" />
+          <EntitySet Name="Hoteli_Usluga" EntityType="Self.Hoteli_Usluga" Schema="Hoteli" Table="Usluga" />
+          <AssociationSet Name="Common_LogRelatedItem_Log" Association="Self.Common_LogRelatedItem_Log">
+            <End Role="Common_Log" EntitySet="Common_Log" />
+            <End Role="Common_LogRelatedItem" EntitySet="Common_LogRelatedItem" />
+          </AssociationSet>
+          <AssociationSet Name="Common_LogRelatedItemReader_Log" Association="Self.Common_LogRelatedItemReader_Log">
+            <End Role="Common_Log" EntitySet="Common_Log" />
+            <End Role="Common_LogRelatedItemReader" EntitySet="Common_LogRelatedItemReader" />
+          </AssociationSet>
+          <AssociationSet Name="Common_PrincipalHasRole_Principal" Association="Self.Common_PrincipalHasRole_Principal">
+            <End Role="Common_Principal" EntitySet="Common_Principal" />
+            <End Role="Common_PrincipalHasRole" EntitySet="Common_PrincipalHasRole" />
+          </AssociationSet>
+          <AssociationSet Name="Common_PrincipalHasRole_Role" Association="Self.Common_PrincipalHasRole_Role">
+            <End Role="Common_Role" EntitySet="Common_Role" />
+            <End Role="Common_PrincipalHasRole" EntitySet="Common_PrincipalHasRole" />
+          </AssociationSet>
+          <AssociationSet Name="Common_PrincipalPermission_Claim" Association="Self.Common_PrincipalPermission_Claim">
+            <End Role="Common_Claim" EntitySet="Common_Claim" />
+            <End Role="Common_PrincipalPermission" EntitySet="Common_PrincipalPermission" />
+          </AssociationSet>
+          <AssociationSet Name="Common_PrincipalPermission_Principal" Association="Self.Common_PrincipalPermission_Principal">
+            <End Role="Common_Principal" EntitySet="Common_Principal" />
+            <End Role="Common_PrincipalPermission" EntitySet="Common_PrincipalPermission" />
+          </AssociationSet>
+          <AssociationSet Name="Common_RelatedEventsSource_Log" Association="Self.Common_RelatedEventsSource_Log">
+            <End Role="Common_LogReader" EntitySet="Common_LogReader" />
+            <End Role="Common_RelatedEventsSource" EntitySet="Common_RelatedEventsSource" />
+          </AssociationSet>
+          <AssociationSet Name="Common_RoleInheritsRole_PermissionsFrom" Association="Self.Common_RoleInheritsRole_PermissionsFrom">
+            <End Role="Common_Role" EntitySet="Common_Role" />
+            <End Role="Common_RoleInheritsRole" EntitySet="Common_RoleInheritsRole" />
+          </AssociationSet>
+          <AssociationSet Name="Common_RoleInheritsRole_UsersFrom" Association="Self.Common_RoleInheritsRole_UsersFrom">
+            <End Role="Common_Role" EntitySet="Common_Role" />
+            <End Role="Common_RoleInheritsRole" EntitySet="Common_RoleInheritsRole" />
+          </AssociationSet>
+          <AssociationSet Name="Common_RolePermission_Claim" Association="Self.Common_RolePermission_Claim">
+            <End Role="Common_Claim" EntitySet="Common_Claim" />
+            <End Role="Common_RolePermission" EntitySet="Common_RolePermission" />
+          </AssociationSet>
+          <AssociationSet Name="Common_RolePermission_Role" Association="Self.Common_RolePermission_Role">
+            <End Role="Common_Role" EntitySet="Common_Role" />
+            <End Role="Common_RolePermission" EntitySet="Common_RolePermission" />
+          </AssociationSet>
+          <AssociationSet Name="Hoteli_GostPoslovno_Base" Association="Self.Hoteli_GostPoslovno_Base">
+            <End Role="Hoteli_Gost" EntitySet="Hoteli_Gost" />
+            <End Role="Hoteli_GostPoslovno" EntitySet="Hoteli_GostPoslovno" />
+          </AssociationSet>
+          <AssociationSet Name="Hoteli_GostPrijatelj_Base" Association="Self.Hoteli_GostPrijatelj_Base">
+            <End Role="Hoteli_Gost" EntitySet="Hoteli_Gost" />
+            <End Role="Hoteli_GostPrijatelj" EntitySet="Hoteli_GostPrijatelj" />
+          </AssociationSet>
+          <AssociationSet Name="Hoteli_GostRezervacija_Gost" Association="Self.Hoteli_GostRezervacija_Gost">
+            <End Role="Hoteli_Gost" EntitySet="Hoteli_Gost" />
+            <End Role="Hoteli_GostRezervacija" EntitySet="Hoteli_GostRezervacija" />
+          </AssociationSet>
+          <AssociationSet Name="Hoteli_Soba_Hotel" Association="Self.Hoteli_Soba_Hotel">
+            <End Role="Hoteli_Hotel" EntitySet="Hoteli_Hotel" />
+            <End Role="Hoteli_Soba" EntitySet="Hoteli_Soba" />
+          </AssociationSet>
+          <AssociationSet Name="Hoteli_Soba_TipSobe" Association="Self.Hoteli_Soba_TipSobe">
+            <End Role="Hoteli_TipSobe" EntitySet="Hoteli_TipSobe" />
+            <End Role="Hoteli_Soba" EntitySet="Hoteli_Soba" />
+          </AssociationSet>
+          <AssociationSet Name="Hoteli_Rezervacija_Soba" Association="Self.Hoteli_Rezervacija_Soba">
+            <End Role="Hoteli_Soba" EntitySet="Hoteli_Soba" />
+            <End Role="Hoteli_Rezervacija" EntitySet="Hoteli_Rezervacija" />
+          </AssociationSet>
+          <AssociationSet Name="Hoteli_GostRezervacija_Rezervacija" Association="Self.Hoteli_GostRezervacija_Rezervacija">
+            <End Role="Hoteli_Rezervacija" EntitySet="Hoteli_Rezervacija" />
+            <End Role="Hoteli_GostRezervacija" EntitySet="Hoteli_GostRezervacija" />
+          </AssociationSet>
+          <AssociationSet Name="Hoteli_Racun_Rezervacija" Association="Self.Hoteli_Racun_Rezervacija">
+            <End Role="Hoteli_Rezervacija" EntitySet="Hoteli_Rezervacija" />
+            <End Role="Hoteli_Racun" EntitySet="Hoteli_Racun" />
+          </AssociationSet>
+          <AssociationSet Name="Hoteli_Stavka_Racun" Association="Self.Hoteli_Stavka_Racun">
+            <End Role="Hoteli_Racun" EntitySet="Hoteli_Racun" />
+            <End Role="Hoteli_Stavka" EntitySet="Hoteli_Stavka" />
+          </AssociationSet>
+          <AssociationSet Name="Hoteli_Stavka_Usluga" Association="Self.Hoteli_Stavka_Usluga">
+            <End Role="Hoteli_Usluga" EntitySet="Hoteli_Usluga" />
+            <End Role="Hoteli_Stavka" EntitySet="Hoteli_Stavka" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
