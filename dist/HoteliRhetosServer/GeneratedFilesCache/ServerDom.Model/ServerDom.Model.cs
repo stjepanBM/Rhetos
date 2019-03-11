@@ -57,6 +57,22 @@ namespace Hoteli
         /*DataStructureInfo ClassBody Hoteli.Hotel*/
     }
 
+    [DataContract]/*DataStructureInfo ClassAttributes Hoteli.HotelInfo*/
+    public class HotelInfo : EntityBase<Hoteli.HotelInfo>/*Next DataStructureInfo ClassInterace Hoteli.HotelInfo*/
+    {
+        /// <summary>Converts the simple object to a navigation object, and copies its simple properties. Navigation properties are set to null.</summary>
+        public Common.Queryable.Hoteli_HotelInfo ToNavigation()
+        {
+            var item = this;
+            return new Common.Queryable.Hoteli_HotelInfo
+            {
+                ID = item.ID/*DataStructureInfo AssignSimpleProperty Hoteli.HotelInfo*/
+            };
+        }
+
+        /*DataStructureInfo ClassBody Hoteli.HotelInfo*/
+    }
+
     [DataContract]/*DataStructureInfo ClassAttributes Hoteli.TipSobe*/
     public class TipSobe : EntityBase<Hoteli.TipSobe>/*Next DataStructureInfo ClassInterace Hoteli.TipSobe*/
     {
@@ -77,6 +93,25 @@ namespace Hoteli
         [DataMember]/*PropertyInfo Attribute Hoteli.TipSobe.CijenaTipa*/
         public decimal? CijenaTipa { get; set; }
         /*DataStructureInfo ClassBody Hoteli.TipSobe*/
+    }
+
+    [DataContract]/*DataStructureInfo ClassAttributes Hoteli.HotelRezervacijeZaSobu*/
+    public class HotelRezervacijeZaSobu : EntityBase<Hoteli.HotelRezervacijeZaSobu>/*Next DataStructureInfo ClassInterace Hoteli.HotelRezervacijeZaSobu*/
+    {
+        /// <summary>Converts the simple object to a navigation object, and copies its simple properties. Navigation properties are set to null.</summary>
+        public Common.Queryable.Hoteli_HotelRezervacijeZaSobu ToNavigation()
+        {
+            var item = this;
+            return new Common.Queryable.Hoteli_HotelRezervacijeZaSobu
+            {
+                ID = item.ID,
+                BrojRezervacija = item.BrojRezervacija/*DataStructureInfo AssignSimpleProperty Hoteli.HotelRezervacijeZaSobu*/
+            };
+        }
+
+        [DataMember]/*PropertyInfo Attribute Hoteli.HotelRezervacijeZaSobu.BrojRezervacija*/
+        public int? BrojRezervacija { get; set; }
+        /*DataStructureInfo ClassBody Hoteli.HotelRezervacijeZaSobu*/
     }
 
     [DataContract]/*DataStructureInfo ClassAttributes Hoteli.Soba*/
@@ -102,6 +137,26 @@ namespace Hoteli
         [DataMember]/*PropertyInfo Attribute Hoteli.Soba.TipSobeID*/
         public Guid? TipSobeID { get; set; }
         /*DataStructureInfo ClassBody Hoteli.Soba*/
+    }
+
+    [DataContract]/*DataStructureInfo ClassAttributes Hoteli.SearchPenthausFilterBy*/
+    public class SearchPenthausFilterBy/*DataStructureInfo ClassInterace Hoteli.SearchPenthausFilterBy*/
+    {
+        [DataMember]/*PropertyInfo Attribute Hoteli.SearchPenthausFilterBy.Pattern*/
+        public string Pattern { get; set; }
+        [DataMember]/*PropertyInfo Attribute Hoteli.SearchPenthausFilterBy.Not*/
+        public bool? Not { get; set; }
+        /*DataStructureInfo ClassBody Hoteli.SearchPenthausFilterBy*/
+    }
+
+    [DataContract]/*DataStructureInfo ClassAttributes Hoteli.SearchPenthaus*/
+    public class SearchPenthaus/*DataStructureInfo ClassInterace Hoteli.SearchPenthaus*/
+    {
+        [DataMember]/*PropertyInfo Attribute Hoteli.SearchPenthaus.Pattern*/
+        public string Pattern { get; set; }
+        [DataMember]/*PropertyInfo Attribute Hoteli.SearchPenthaus.Not*/
+        public bool? Not { get; set; }
+        /*DataStructureInfo ClassBody Hoteli.SearchPenthaus*/
     }
 
     [DataContract]/*DataStructureInfo ClassAttributes Hoteli.Gost*/
@@ -193,6 +248,56 @@ namespace Hoteli
         [DataMember]/*PropertyInfo Attribute Hoteli.Rezervacija.SobaID*/
         public Guid? SobaID { get; set; }
         /*DataStructureInfo ClassBody Hoteli.Rezervacija*/
+    }
+
+    [DataContract]/*DataStructureInfo ClassAttributes Hoteli.RezervacijaGrid*/
+    public class RezervacijaGrid : EntityBase<Hoteli.RezervacijaGrid>/*Next DataStructureInfo ClassInterace Hoteli.RezervacijaGrid*/
+    {
+        /// <summary>Converts the simple object to a navigation object, and copies its simple properties. Navigation properties are set to null.</summary>
+        public Common.Queryable.Hoteli_RezervacijaGrid ToNavigation()
+        {
+            var item = this;
+            return new Common.Queryable.Hoteli_RezervacijaGrid
+            {
+                ID = item.ID,
+                VrijemeOd = item.VrijemeOd,
+                VrijemeDo = item.VrijemeDo,
+                SobaNazivSobe = item.SobaNazivSobe/*DataStructureInfo AssignSimpleProperty Hoteli.RezervacijaGrid*/
+            };
+        }
+
+        [DataMember]/*PropertyInfo Attribute Hoteli.RezervacijaGrid.VrijemeOd*/
+        public DateTime? VrijemeOd { get; set; }
+        [DataMember]/*PropertyInfo Attribute Hoteli.RezervacijaGrid.VrijemeDo*/
+        public DateTime? VrijemeDo { get; set; }
+        [DataMember]/*PropertyInfo Attribute Hoteli.RezervacijaGrid.SobaNazivSobe*/
+        public string SobaNazivSobe { get; set; }
+        /*DataStructureInfo ClassBody Hoteli.RezervacijaGrid*/
+    }
+
+    [DataContract]/*DataStructureInfo ClassAttributes Hoteli.HotelGrid*/
+    public class HotelGrid : EntityBase<Hoteli.HotelGrid>/*Next DataStructureInfo ClassInterace Hoteli.HotelGrid*/
+    {
+        /// <summary>Converts the simple object to a navigation object, and copies its simple properties. Navigation properties are set to null.</summary>
+        public Common.Queryable.Hoteli_HotelGrid ToNavigation()
+        {
+            var item = this;
+            return new Common.Queryable.Hoteli_HotelGrid
+            {
+                ID = item.ID,
+                NazivSobe = item.NazivSobe,
+                HotelNazivHotela = item.HotelNazivHotela,
+                Extension_HotelRezervacijeZaSobuBrojRezervacija = item.Extension_HotelRezervacijeZaSobuBrojRezervacija/*DataStructureInfo AssignSimpleProperty Hoteli.HotelGrid*/
+            };
+        }
+
+        [DataMember]/*PropertyInfo Attribute Hoteli.HotelGrid.NazivSobe*/
+        public string NazivSobe { get; set; }
+        [DataMember]/*PropertyInfo Attribute Hoteli.HotelGrid.HotelNazivHotela*/
+        public string HotelNazivHotela { get; set; }
+        [DataMember]/*PropertyInfo Attribute Hoteli.HotelGrid.Extension_HotelRezervacijeZaSobuBrojRezervacija*/
+        public int? Extension_HotelRezervacijeZaSobuBrojRezervacija { get; set; }
+        /*DataStructureInfo ClassBody Hoteli.HotelGrid*/
     }
 
     [DataContract]/*DataStructureInfo ClassAttributes Hoteli.GostRezervacija*/
@@ -941,9 +1046,69 @@ namespace Common.Queryable
             };
         }
 
+        private Common.Queryable.Hoteli_HotelInfo _extension_HotelInfo;
+
+        /*DataStructureQueryable PropertyAttribute Hoteli.Hotel.Extension_HotelInfo*/
+        public virtual Common.Queryable.Hoteli_HotelInfo Extension_HotelInfo
+        {
+            get
+            {
+                /*DataStructureQueryable Getter Hoteli.Hotel.Extension_HotelInfo*/
+                return _extension_HotelInfo;
+            }
+            set
+            {
+                if (((IDetachOverride)this).Detaching) return;
+                /*DataStructureQueryable Setter Hoteli.Hotel.Extension_HotelInfo*/
+                _extension_HotelInfo = value;
+            }
+        }
+
         /*DataStructureInfo QueryableClassMembers Hoteli.Hotel*/
 
         public bool Equals(Hoteli_Hotel other)
+        {
+            return other != null && other.ID == ID;
+        }
+    }
+
+    /*DataStructureInfo QueryableClassAttributes Hoteli.HotelInfo*/
+    public class Hoteli_HotelInfo : global::Hoteli.HotelInfo, IQueryableEntity<Hoteli.HotelInfo>, System.IEquatable<Hoteli_HotelInfo>, IDetachOverride/*DataStructureInfo QueryableClassInterace Hoteli.HotelInfo*/
+    {
+        bool IDetachOverride.Detaching { get; set; }
+
+        /// <summary>Converts the object with navigation properties to a simple object with primitive properties.</summary>
+        public Hoteli.HotelInfo ToSimple()
+        {
+            var item = this;
+            return new Hoteli.HotelInfo
+            {
+                ID = item.ID/*DataStructureInfo AssignSimpleProperty Hoteli.HotelInfo*/
+            };
+        }
+
+        private Common.Queryable.Hoteli_Hotel _base;
+
+        /*DataStructureQueryable PropertyAttribute Hoteli.HotelInfo.Base*/
+        public virtual Common.Queryable.Hoteli_Hotel Base
+        {
+            get
+            {
+                /*DataStructureQueryable Getter Hoteli.HotelInfo.Base*/
+                return _base;
+            }
+            set
+            {
+                if (((IDetachOverride)this).Detaching) return;
+                /*DataStructureQueryable Setter Hoteli.HotelInfo.Base*/
+                _base = value;
+                ID = value != null ? value.ID : Guid.Empty;
+            }
+        }
+
+        /*DataStructureInfo QueryableClassMembers Hoteli.HotelInfo*/
+
+        public bool Equals(Hoteli_HotelInfo other)
         {
             return other != null && other.ID == ID;
         }
@@ -974,6 +1139,49 @@ namespace Common.Queryable
         }
     }
 
+    /*DataStructureInfo QueryableClassAttributes Hoteli.HotelRezervacijeZaSobu*/
+    public class Hoteli_HotelRezervacijeZaSobu : global::Hoteli.HotelRezervacijeZaSobu, IQueryableEntity<Hoteli.HotelRezervacijeZaSobu>, System.IEquatable<Hoteli_HotelRezervacijeZaSobu>, IDetachOverride/*DataStructureInfo QueryableClassInterace Hoteli.HotelRezervacijeZaSobu*/
+    {
+        bool IDetachOverride.Detaching { get; set; }
+
+        /// <summary>Converts the object with navigation properties to a simple object with primitive properties.</summary>
+        public Hoteli.HotelRezervacijeZaSobu ToSimple()
+        {
+            var item = this;
+            return new Hoteli.HotelRezervacijeZaSobu
+            {
+                ID = item.ID,
+                BrojRezervacija = item.BrojRezervacija/*DataStructureInfo AssignSimpleProperty Hoteli.HotelRezervacijeZaSobu*/
+            };
+        }
+
+        private Common.Queryable.Hoteli_Soba _base;
+
+        /*DataStructureQueryable PropertyAttribute Hoteli.HotelRezervacijeZaSobu.Base*/
+        public virtual Common.Queryable.Hoteli_Soba Base
+        {
+            get
+            {
+                /*DataStructureQueryable Getter Hoteli.HotelRezervacijeZaSobu.Base*/
+                return _base;
+            }
+            set
+            {
+                if (((IDetachOverride)this).Detaching) return;
+                /*DataStructureQueryable Setter Hoteli.HotelRezervacijeZaSobu.Base*/
+                _base = value;
+                ID = value != null ? value.ID : Guid.Empty;
+            }
+        }
+
+        /*DataStructureInfo QueryableClassMembers Hoteli.HotelRezervacijeZaSobu*/
+
+        public bool Equals(Hoteli_HotelRezervacijeZaSobu other)
+        {
+            return other != null && other.ID == ID;
+        }
+    }
+
     /*DataStructureInfo QueryableClassAttributes Hoteli.Soba*/
     public class Hoteli_Soba : global::Hoteli.Soba, IQueryableEntity<Hoteli.Soba>, System.IEquatable<Hoteli_Soba>, IDetachOverride/*DataStructureInfo QueryableClassInterace Hoteli.Soba*/
     {
@@ -990,6 +1198,24 @@ namespace Common.Queryable
                 HotelID = item.HotelID,
                 TipSobeID = item.TipSobeID/*DataStructureInfo AssignSimpleProperty Hoteli.Soba*/
             };
+        }
+
+        private Common.Queryable.Hoteli_HotelRezervacijeZaSobu _extension_HotelRezervacijeZaSobu;
+
+        /*DataStructureQueryable PropertyAttribute Hoteli.Soba.Extension_HotelRezervacijeZaSobu*/
+        public virtual Common.Queryable.Hoteli_HotelRezervacijeZaSobu Extension_HotelRezervacijeZaSobu
+        {
+            get
+            {
+                /*DataStructureQueryable Getter Hoteli.Soba.Extension_HotelRezervacijeZaSobu*/
+                return _extension_HotelRezervacijeZaSobu;
+            }
+            set
+            {
+                if (((IDetachOverride)this).Detaching) return;
+                /*DataStructureQueryable Setter Hoteli.Soba.Extension_HotelRezervacijeZaSobu*/
+                _extension_HotelRezervacijeZaSobu = value;
+            }
         }
 
         private Common.Queryable.Hoteli_Hotel _hotel;
@@ -1027,6 +1253,24 @@ namespace Common.Queryable
                 /*DataStructureQueryable Setter Hoteli.Soba.TipSobe*/
                 _tipSobe = value;
                 TipSobeID = value != null ? (Guid?)value.ID : null;
+            }
+        }
+
+        private Common.Queryable.Hoteli_HotelGrid _extension_HotelGrid;
+
+        /*DataStructureQueryable PropertyAttribute Hoteli.Soba.Extension_HotelGrid*/
+        public virtual Common.Queryable.Hoteli_HotelGrid Extension_HotelGrid
+        {
+            get
+            {
+                /*DataStructureQueryable Getter Hoteli.Soba.Extension_HotelGrid*/
+                return _extension_HotelGrid;
+            }
+            set
+            {
+                if (((IDetachOverride)this).Detaching) return;
+                /*DataStructureQueryable Setter Hoteli.Soba.Extension_HotelGrid*/
+                _extension_HotelGrid = value;
             }
         }
 
@@ -1224,9 +1468,117 @@ namespace Common.Queryable
             }
         }
 
+        private Common.Queryable.Hoteli_RezervacijaGrid _extension_RezervacijaGrid;
+
+        /*DataStructureQueryable PropertyAttribute Hoteli.Rezervacija.Extension_RezervacijaGrid*/
+        public virtual Common.Queryable.Hoteli_RezervacijaGrid Extension_RezervacijaGrid
+        {
+            get
+            {
+                /*DataStructureQueryable Getter Hoteli.Rezervacija.Extension_RezervacijaGrid*/
+                return _extension_RezervacijaGrid;
+            }
+            set
+            {
+                if (((IDetachOverride)this).Detaching) return;
+                /*DataStructureQueryable Setter Hoteli.Rezervacija.Extension_RezervacijaGrid*/
+                _extension_RezervacijaGrid = value;
+            }
+        }
+
         /*DataStructureInfo QueryableClassMembers Hoteli.Rezervacija*/
 
         public bool Equals(Hoteli_Rezervacija other)
+        {
+            return other != null && other.ID == ID;
+        }
+    }
+
+    /*DataStructureInfo QueryableClassAttributes Hoteli.RezervacijaGrid*/
+    public class Hoteli_RezervacijaGrid : global::Hoteli.RezervacijaGrid, IQueryableEntity<Hoteli.RezervacijaGrid>, System.IEquatable<Hoteli_RezervacijaGrid>, IDetachOverride/*DataStructureInfo QueryableClassInterace Hoteli.RezervacijaGrid*/
+    {
+        bool IDetachOverride.Detaching { get; set; }
+
+        /// <summary>Converts the object with navigation properties to a simple object with primitive properties.</summary>
+        public Hoteli.RezervacijaGrid ToSimple()
+        {
+            var item = this;
+            return new Hoteli.RezervacijaGrid
+            {
+                ID = item.ID,
+                VrijemeOd = item.VrijemeOd,
+                VrijemeDo = item.VrijemeDo,
+                SobaNazivSobe = item.SobaNazivSobe/*DataStructureInfo AssignSimpleProperty Hoteli.RezervacijaGrid*/
+            };
+        }
+
+        private Common.Queryable.Hoteli_Rezervacija _base;
+
+        /*DataStructureQueryable PropertyAttribute Hoteli.RezervacijaGrid.Base*/
+        public virtual Common.Queryable.Hoteli_Rezervacija Base
+        {
+            get
+            {
+                /*DataStructureQueryable Getter Hoteli.RezervacijaGrid.Base*/
+                return _base;
+            }
+            set
+            {
+                if (((IDetachOverride)this).Detaching) return;
+                /*DataStructureQueryable Setter Hoteli.RezervacijaGrid.Base*/
+                _base = value;
+                ID = value != null ? value.ID : Guid.Empty;
+            }
+        }
+
+        /*DataStructureInfo QueryableClassMembers Hoteli.RezervacijaGrid*/
+
+        public bool Equals(Hoteli_RezervacijaGrid other)
+        {
+            return other != null && other.ID == ID;
+        }
+    }
+
+    /*DataStructureInfo QueryableClassAttributes Hoteli.HotelGrid*/
+    public class Hoteli_HotelGrid : global::Hoteli.HotelGrid, IQueryableEntity<Hoteli.HotelGrid>, System.IEquatable<Hoteli_HotelGrid>, IDetachOverride/*DataStructureInfo QueryableClassInterace Hoteli.HotelGrid*/
+    {
+        bool IDetachOverride.Detaching { get; set; }
+
+        /// <summary>Converts the object with navigation properties to a simple object with primitive properties.</summary>
+        public Hoteli.HotelGrid ToSimple()
+        {
+            var item = this;
+            return new Hoteli.HotelGrid
+            {
+                ID = item.ID,
+                NazivSobe = item.NazivSobe,
+                HotelNazivHotela = item.HotelNazivHotela,
+                Extension_HotelRezervacijeZaSobuBrojRezervacija = item.Extension_HotelRezervacijeZaSobuBrojRezervacija/*DataStructureInfo AssignSimpleProperty Hoteli.HotelGrid*/
+            };
+        }
+
+        private Common.Queryable.Hoteli_Soba _base;
+
+        /*DataStructureQueryable PropertyAttribute Hoteli.HotelGrid.Base*/
+        public virtual Common.Queryable.Hoteli_Soba Base
+        {
+            get
+            {
+                /*DataStructureQueryable Getter Hoteli.HotelGrid.Base*/
+                return _base;
+            }
+            set
+            {
+                if (((IDetachOverride)this).Detaching) return;
+                /*DataStructureQueryable Setter Hoteli.HotelGrid.Base*/
+                _base = value;
+                ID = value != null ? value.ID : Guid.Empty;
+            }
+        }
+
+        /*DataStructureInfo QueryableClassMembers Hoteli.HotelGrid*/
+
+        public bool Equals(Hoteli_HotelGrid other)
         {
             return other != null && other.ID == ID;
         }
@@ -2164,6 +2516,14 @@ namespace Rhetos.Dom.DefaultConcepts
             });
         }
         /// <summary>Converts the objects with navigation properties to simple objects with primitive properties.</summary>
+        public static IQueryable<Hoteli.HotelInfo> ToSimple(this IQueryable<Common.Queryable.Hoteli_HotelInfo> query)
+        {
+            return query.Select(item => new Hoteli.HotelInfo
+            {
+                ID = item.ID/*DataStructureInfo AssignSimpleProperty Hoteli.HotelInfo*/
+            });
+        }
+        /// <summary>Converts the objects with navigation properties to simple objects with primitive properties.</summary>
         public static IQueryable<Hoteli.TipSobe> ToSimple(this IQueryable<Common.Queryable.Hoteli_TipSobe> query)
         {
             return query.Select(item => new Hoteli.TipSobe
@@ -2171,6 +2531,15 @@ namespace Rhetos.Dom.DefaultConcepts
                 ID = item.ID,
                 NazivTipa = item.NazivTipa,
                 CijenaTipa = item.CijenaTipa/*DataStructureInfo AssignSimpleProperty Hoteli.TipSobe*/
+            });
+        }
+        /// <summary>Converts the objects with navigation properties to simple objects with primitive properties.</summary>
+        public static IQueryable<Hoteli.HotelRezervacijeZaSobu> ToSimple(this IQueryable<Common.Queryable.Hoteli_HotelRezervacijeZaSobu> query)
+        {
+            return query.Select(item => new Hoteli.HotelRezervacijeZaSobu
+            {
+                ID = item.ID,
+                BrojRezervacija = item.BrojRezervacija/*DataStructureInfo AssignSimpleProperty Hoteli.HotelRezervacijeZaSobu*/
             });
         }
         /// <summary>Converts the objects with navigation properties to simple objects with primitive properties.</summary>
@@ -2223,6 +2592,28 @@ namespace Rhetos.Dom.DefaultConcepts
                 VrijemeOd = item.VrijemeOd,
                 VrijemeDo = item.VrijemeDo,
                 SobaID = item.SobaID/*DataStructureInfo AssignSimpleProperty Hoteli.Rezervacija*/
+            });
+        }
+        /// <summary>Converts the objects with navigation properties to simple objects with primitive properties.</summary>
+        public static IQueryable<Hoteli.RezervacijaGrid> ToSimple(this IQueryable<Common.Queryable.Hoteli_RezervacijaGrid> query)
+        {
+            return query.Select(item => new Hoteli.RezervacijaGrid
+            {
+                ID = item.ID,
+                VrijemeOd = item.VrijemeOd,
+                VrijemeDo = item.VrijemeDo,
+                SobaNazivSobe = item.SobaNazivSobe/*DataStructureInfo AssignSimpleProperty Hoteli.RezervacijaGrid*/
+            });
+        }
+        /// <summary>Converts the objects with navigation properties to simple objects with primitive properties.</summary>
+        public static IQueryable<Hoteli.HotelGrid> ToSimple(this IQueryable<Common.Queryable.Hoteli_HotelGrid> query)
+        {
+            return query.Select(item => new Hoteli.HotelGrid
+            {
+                ID = item.ID,
+                NazivSobe = item.NazivSobe,
+                HotelNazivHotela = item.HotelNazivHotela,
+                Extension_HotelRezervacijeZaSobuBrojRezervacija = item.Extension_HotelRezervacijeZaSobuBrojRezervacija/*DataStructureInfo AssignSimpleProperty Hoteli.HotelGrid*/
             });
         }
         /// <summary>Converts the objects with navigation properties to simple objects with primitive properties.</summary>

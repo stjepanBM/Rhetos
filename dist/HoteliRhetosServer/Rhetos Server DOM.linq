@@ -1,25 +1,32 @@
 <Query Kind="Program">
-  <Reference Relative="bin\EntityFramework.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\EntityFramework.dll</Reference>
-  <Reference Relative="bin\EntityFramework.SqlServer.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\EntityFramework.SqlServer.dll</Reference>
-  <Reference Relative="bin\NLog.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\NLog.dll</Reference>
-  <Reference Relative="bin\Oracle.ManagedDataAccess.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Oracle.ManagedDataAccess.dll</Reference>
-  <Reference Relative="bin\Plugins\Rhetos.AspNetFormsAuth.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Plugins\Rhetos.AspNetFormsAuth.dll</Reference>
-  <Reference Relative="bin\Rhetos.Configuration.Autofac.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Rhetos.Configuration.Autofac.dll</Reference>
-  <Reference Relative="bin\Plugins\Rhetos.Dom.DefaultConcepts.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Plugins\Rhetos.Dom.DefaultConcepts.dll</Reference>
-  <Reference Relative="bin\Plugins\Rhetos.Dom.DefaultConcepts.Interfaces.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Plugins\Rhetos.Dom.DefaultConcepts.Interfaces.dll</Reference>
-  <Reference Relative="bin\Rhetos.Dom.Interfaces.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Rhetos.Dom.Interfaces.dll</Reference>
-  <Reference Relative="bin\Plugins\Rhetos.Dsl.DefaultConcepts.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Plugins\Rhetos.Dsl.DefaultConcepts.dll</Reference>
-  <Reference Relative="bin\Rhetos.Dsl.Interfaces.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Rhetos.Dsl.Interfaces.dll</Reference>
-  <Reference Relative="bin\Rhetos.Interfaces.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Rhetos.Interfaces.dll</Reference>
-  <Reference Relative="bin\Rhetos.Logging.Interfaces.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Rhetos.Logging.Interfaces.dll</Reference>
-  <Reference Relative="bin\Rhetos.Persistence.Interfaces.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Rhetos.Persistence.Interfaces.dll</Reference>
-  <Reference Relative="bin\Plugins\Rhetos.Processing.DefaultCommands.Interfaces.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Plugins\Rhetos.Processing.DefaultCommands.Interfaces.dll</Reference>
-  <Reference Relative="bin\Rhetos.Processing.Interfaces.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Rhetos.Processing.Interfaces.dll</Reference>
-  <Reference Relative="bin\Rhetos.Security.Interfaces.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Rhetos.Security.Interfaces.dll</Reference>
-  <Reference Relative="bin\Rhetos.Utilities.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Rhetos.Utilities.dll</Reference>
-  <Reference Relative="bin\Generated\ServerDom.Model.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Generated\ServerDom.Model.dll</Reference>
-  <Reference Relative="bin\Generated\ServerDom.Orm.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Generated\ServerDom.Orm.dll</Reference>
-  <Reference Relative="bin\Generated\ServerDom.Repositories.dll">C:\My Projects\Rhetos\Source\Rhetos\bin\Generated\ServerDom.Repositories.dll</Reference>
+  <Connection>
+    <ID>c5ec4c13-2df7-43f9-b421-6de9f772ea8d</ID>
+    <Persist>true</Persist>
+    <Server>SBMATIC-PC\MATIC</Server>
+    <Database>Hoteli</Database>
+    <ShowServer>true</ShowServer>
+  </Connection>
+  <Reference Relative="bin\EntityFramework.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\EntityFramework.dll</Reference>
+  <Reference Relative="bin\EntityFramework.SqlServer.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\EntityFramework.SqlServer.dll</Reference>
+  <Reference Relative="bin\NLog.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\NLog.dll</Reference>
+  <Reference Relative="bin\Oracle.ManagedDataAccess.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\Oracle.ManagedDataAccess.dll</Reference>
+  <Reference>C:\My Projects\Rhetos\Source\Rhetos\bin\Plugins\Rhetos.AspNetFormsAuth.dll</Reference>
+  <Reference Relative="bin\Rhetos.Configuration.Autofac.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\Rhetos.Configuration.Autofac.dll</Reference>
+  <Reference Relative="bin\Plugins\Rhetos.Dom.DefaultConcepts.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\Plugins\Rhetos.Dom.DefaultConcepts.dll</Reference>
+  <Reference Relative="bin\Plugins\Rhetos.Dom.DefaultConcepts.Interfaces.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\Plugins\Rhetos.Dom.DefaultConcepts.Interfaces.dll</Reference>
+  <Reference Relative="bin\Rhetos.Dom.Interfaces.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\Rhetos.Dom.Interfaces.dll</Reference>
+  <Reference Relative="bin\Plugins\Rhetos.Dsl.DefaultConcepts.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\Plugins\Rhetos.Dsl.DefaultConcepts.dll</Reference>
+  <Reference Relative="bin\Rhetos.Dsl.Interfaces.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\Rhetos.Dsl.Interfaces.dll</Reference>
+  <Reference Relative="bin\Rhetos.Interfaces.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\Rhetos.Interfaces.dll</Reference>
+  <Reference Relative="bin\Rhetos.Logging.Interfaces.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\Rhetos.Logging.Interfaces.dll</Reference>
+  <Reference Relative="bin\Rhetos.Persistence.Interfaces.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\Rhetos.Persistence.Interfaces.dll</Reference>
+  <Reference Relative="bin\Plugins\Rhetos.Processing.DefaultCommands.Interfaces.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\Plugins\Rhetos.Processing.DefaultCommands.Interfaces.dll</Reference>
+  <Reference Relative="bin\Rhetos.Processing.Interfaces.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\Rhetos.Processing.Interfaces.dll</Reference>
+  <Reference Relative="bin\Rhetos.Security.Interfaces.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\Rhetos.Security.Interfaces.dll</Reference>
+  <Reference Relative="bin\Rhetos.Utilities.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\Rhetos.Utilities.dll</Reference>
+  <Reference Relative="bin\Generated\ServerDom.Model.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\Generated\ServerDom.Model.dll</Reference>
+  <Reference Relative="bin\Generated\ServerDom.Orm.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\Generated\ServerDom.Orm.dll</Reference>
+  <Reference Relative="bin\Generated\ServerDom.Repositories.dll">D:\Hoteli\dist\HoteliRhetosServer\bin\Generated\ServerDom.Repositories.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\System.DirectoryServices.AccountManagement.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\System.DirectoryServices.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\System.Runtime.Serialization.dll</Reference>
@@ -57,28 +64,25 @@ void Main()
         var context = container.Resolve<Common.ExecutionContext>();
         var repository = context.Repository;
 
-		// Query data from the `Common.Claim` table:
+
+		//repository.Hoteli.Soba.Load().Select(s => new { s.NazivSobe, s.HotelID }).Dump();
 		
-		var claims = repository.Common.Claim.Query()
-			.Where(c => c.ClaimResource.StartsWith("Common.") && c.ClaimRight == "New")
-			.ToSimple(); // Removes ORM navigation properties from the loaded objects.
-			
-        claims.ToString().Dump("Common.Claims SQL query");
-		claims.Dump("Common.Claims items");
-        
-        // Add and remove a `Common.Principal`:
+//		 var query = repository.Hoteli.Soba.Query()
+//		.Select(s => new { s.NazivSobe, s.Hotel.NazivHotela }).ToList().Dump();
+//
+//		repository.Hoteli.HotelGrid.Load().Dump();
+//
+//		repository.Hoteli.Rezervacija.Load().Dump();
+//
+//		repository.Hoteli.HotelRezervacijeZaSobu.Load().Dump();
+
+		//repository.Hoteli.createSobe(new CreateSobe{parametre ovdje})
+		var filterParameter =(new Hoteli.SearchPenthaus { 
+		Pattern = "fr", Not = true});
+				
+		repository.Hoteli.Soba.Query(filterParameter).Dump(1);
+
 		
-        var testUser = new Common.Principal { Name = "Test123", ID = Guid.NewGuid() };
-        repository.Common.Principal.Insert(new[] { testUser });
-        repository.Common.Principal.Delete(new[] { testUser });
-        
-        // Print logged events for the `Common.Principal`:
-		
-        repository.Common.LogReader.Query()
-            .Where(log => log.TableName == "Common.Principal" && log.ItemId == testUser.ID)
-            .ToList()
-            .Dump("Common.Principal log");
-			
-		Console.WriteLine("Done.");
-    }
+
+	}
 }

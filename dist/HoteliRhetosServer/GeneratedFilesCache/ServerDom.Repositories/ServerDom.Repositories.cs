@@ -175,12 +175,16 @@ namespace Common
             builder.RegisterInstance(Infrastructure.ApplyFiltersOnClientRead).ExternallyOwned();
             builder.RegisterInstance(Infrastructure.CurrentKeepSynchronizedMetadata).ExternallyOwned();
             builder.RegisterType<Hoteli._Helper.Hotel_Repository>().Keyed<IRepository>("Hoteli.Hotel").InstancePerLifetimeScope();
+            builder.RegisterType<Hoteli._Helper.HotelInfo_Repository>().Keyed<IRepository>("Hoteli.HotelInfo").InstancePerLifetimeScope();
             builder.RegisterType<Hoteli._Helper.TipSobe_Repository>().Keyed<IRepository>("Hoteli.TipSobe").InstancePerLifetimeScope();
+            builder.RegisterType<Hoteli._Helper.HotelRezervacijeZaSobu_Repository>().Keyed<IRepository>("Hoteli.HotelRezervacijeZaSobu").InstancePerLifetimeScope();
             builder.RegisterType<Hoteli._Helper.Soba_Repository>().Keyed<IRepository>("Hoteli.Soba").InstancePerLifetimeScope();
             builder.RegisterType<Hoteli._Helper.Gost_Repository>().Keyed<IRepository>("Hoteli.Gost").InstancePerLifetimeScope();
             builder.RegisterType<Hoteli._Helper.GostPrijatelj_Repository>().Keyed<IRepository>("Hoteli.GostPrijatelj").InstancePerLifetimeScope();
             builder.RegisterType<Hoteli._Helper.GostPoslovno_Repository>().Keyed<IRepository>("Hoteli.GostPoslovno").InstancePerLifetimeScope();
             builder.RegisterType<Hoteli._Helper.Rezervacija_Repository>().Keyed<IRepository>("Hoteli.Rezervacija").InstancePerLifetimeScope();
+            builder.RegisterType<Hoteli._Helper.RezervacijaGrid_Repository>().Keyed<IRepository>("Hoteli.RezervacijaGrid").InstancePerLifetimeScope();
+            builder.RegisterType<Hoteli._Helper.HotelGrid_Repository>().Keyed<IRepository>("Hoteli.HotelGrid").InstancePerLifetimeScope();
             builder.RegisterType<Hoteli._Helper.GostRezervacija_Repository>().Keyed<IRepository>("Hoteli.GostRezervacija").InstancePerLifetimeScope();
             builder.RegisterType<Hoteli._Helper.Racun_Repository>().Keyed<IRepository>("Hoteli.Racun").InstancePerLifetimeScope();
             builder.RegisterType<Hoteli._Helper.Usluga_Repository>().Keyed<IRepository>("Hoteli.Usluga").InstancePerLifetimeScope();
@@ -348,8 +352,14 @@ namespace Hoteli._Helper
         private Hotel_Repository _Hotel_Repository;
         public Hotel_Repository Hotel { get { return _Hotel_Repository ?? (_Hotel_Repository = (Hotel_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Hoteli.Hotel")); } }
 
+        private HotelInfo_Repository _HotelInfo_Repository;
+        public HotelInfo_Repository HotelInfo { get { return _HotelInfo_Repository ?? (_HotelInfo_Repository = (HotelInfo_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Hoteli.HotelInfo")); } }
+
         private TipSobe_Repository _TipSobe_Repository;
         public TipSobe_Repository TipSobe { get { return _TipSobe_Repository ?? (_TipSobe_Repository = (TipSobe_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Hoteli.TipSobe")); } }
+
+        private HotelRezervacijeZaSobu_Repository _HotelRezervacijeZaSobu_Repository;
+        public HotelRezervacijeZaSobu_Repository HotelRezervacijeZaSobu { get { return _HotelRezervacijeZaSobu_Repository ?? (_HotelRezervacijeZaSobu_Repository = (HotelRezervacijeZaSobu_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Hoteli.HotelRezervacijeZaSobu")); } }
 
         private Soba_Repository _Soba_Repository;
         public Soba_Repository Soba { get { return _Soba_Repository ?? (_Soba_Repository = (Soba_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Hoteli.Soba")); } }
@@ -365,6 +375,12 @@ namespace Hoteli._Helper
 
         private Rezervacija_Repository _Rezervacija_Repository;
         public Rezervacija_Repository Rezervacija { get { return _Rezervacija_Repository ?? (_Rezervacija_Repository = (Rezervacija_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Hoteli.Rezervacija")); } }
+
+        private RezervacijaGrid_Repository _RezervacijaGrid_Repository;
+        public RezervacijaGrid_Repository RezervacijaGrid { get { return _RezervacijaGrid_Repository ?? (_RezervacijaGrid_Repository = (RezervacijaGrid_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Hoteli.RezervacijaGrid")); } }
+
+        private HotelGrid_Repository _HotelGrid_Repository;
+        public HotelGrid_Repository HotelGrid { get { return _HotelGrid_Repository ?? (_HotelGrid_Repository = (HotelGrid_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Hoteli.HotelGrid")); } }
 
         private GostRezervacija_Repository _GostRezervacija_Repository;
         public GostRezervacija_Repository GostRezervacija { get { return _GostRezervacija_Repository ?? (_GostRezervacija_Repository = (GostRezervacija_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Hoteli.GostRezervacija")); } }
@@ -545,6 +561,34 @@ namespace Hoteli._Helper
         /*DataStructureInfo RepositoryMembers Hoteli.Hotel*/
     }
 
+    /*DataStructureInfo RepositoryAttributes Hoteli.HotelInfo*/
+    public class HotelInfo_Repository : /*DataStructureInfo OverrideBaseType Hoteli.HotelInfo*/ Common.OrmRepositoryBase<Common.Queryable.Hoteli_HotelInfo, Hoteli.HotelInfo> // Common.QueryableRepositoryBase<Common.Queryable.Hoteli_HotelInfo, Hoteli.HotelInfo> // Common.ReadableRepositoryBase<Hoteli.HotelInfo> // global::Common.RepositoryBase
+        /*DataStructureInfo RepositoryInterface Hoteli.HotelInfo*/
+    {
+        /*DataStructureInfo RepositoryPrivateMembers Hoteli.HotelInfo*/
+
+        public HotelInfo_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext/*DataStructureInfo RepositoryConstructorArguments Hoteli.HotelInfo*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            /*DataStructureInfo RepositoryConstructorCode Hoteli.HotelInfo*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Hoteli.HotelInfo[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Hoteli_HotelInfo> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Hoteli.HotelInfo*/
+            return _executionContext.EntityFrameworkContext.Hoteli_HotelInfo.AsNoTracking();
+        }
+
+        /*DataStructureInfo RepositoryMembers Hoteli.HotelInfo*/
+    }
+
     /*DataStructureInfo RepositoryAttributes Hoteli.TipSobe*/
     public class TipSobe_Repository : /*DataStructureInfo OverrideBaseType Hoteli.TipSobe*/ Common.OrmRepositoryBase<Common.Queryable.Hoteli_TipSobe, Hoteli.TipSobe> // Common.QueryableRepositoryBase<Common.Queryable.Hoteli_TipSobe, Hoteli.TipSobe> // Common.ReadableRepositoryBase<Hoteli.TipSobe> // global::Common.RepositoryBase
         , IWritableRepository<Hoteli.TipSobe>, IValidateRepository/*DataStructureInfo RepositoryInterface Hoteli.TipSobe*/
@@ -703,6 +747,34 @@ namespace Hoteli._Helper
         /*DataStructureInfo RepositoryMembers Hoteli.TipSobe*/
     }
 
+    /*DataStructureInfo RepositoryAttributes Hoteli.HotelRezervacijeZaSobu*/
+    public class HotelRezervacijeZaSobu_Repository : /*DataStructureInfo OverrideBaseType Hoteli.HotelRezervacijeZaSobu*/ Common.OrmRepositoryBase<Common.Queryable.Hoteli_HotelRezervacijeZaSobu, Hoteli.HotelRezervacijeZaSobu> // Common.QueryableRepositoryBase<Common.Queryable.Hoteli_HotelRezervacijeZaSobu, Hoteli.HotelRezervacijeZaSobu> // Common.ReadableRepositoryBase<Hoteli.HotelRezervacijeZaSobu> // global::Common.RepositoryBase
+        /*DataStructureInfo RepositoryInterface Hoteli.HotelRezervacijeZaSobu*/
+    {
+        /*DataStructureInfo RepositoryPrivateMembers Hoteli.HotelRezervacijeZaSobu*/
+
+        public HotelRezervacijeZaSobu_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext/*DataStructureInfo RepositoryConstructorArguments Hoteli.HotelRezervacijeZaSobu*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            /*DataStructureInfo RepositoryConstructorCode Hoteli.HotelRezervacijeZaSobu*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Hoteli.HotelRezervacijeZaSobu[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Hoteli_HotelRezervacijeZaSobu> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Hoteli.HotelRezervacijeZaSobu*/
+            return _executionContext.EntityFrameworkContext.Hoteli_HotelRezervacijeZaSobu.AsNoTracking();
+        }
+
+        /*DataStructureInfo RepositoryMembers Hoteli.HotelRezervacijeZaSobu*/
+    }
+
     /*DataStructureInfo RepositoryAttributes Hoteli.Soba*/
     public class Soba_Repository : /*DataStructureInfo OverrideBaseType Hoteli.Soba*/ Common.OrmRepositoryBase<Common.Queryable.Hoteli_Soba, Hoteli.Soba> // Common.QueryableRepositoryBase<Common.Queryable.Hoteli_Soba, Hoteli.Soba> // Common.ReadableRepositoryBase<Hoteli.Soba> // global::Common.RepositoryBase
         , IWritableRepository<Hoteli.Soba>, IValidateRepository/*DataStructureInfo RepositoryInterface Hoteli.Soba*/
@@ -843,6 +915,46 @@ namespace Hoteli._Helper
         {
             /*DataStructureInfo WritableOrm OnSaveValidate Hoteli.Soba*/
             yield break;
+        }
+
+        public IQueryable<Common.Queryable.Hoteli_Soba> Filter(IQueryable<Common.Queryable.Hoteli_Soba> localSource, SearchPenthaus localParameter)
+        {
+            Func<IQueryable<Common.Queryable.Hoteli_Soba>, Common.DomRepository, SearchPenthaus/*ComposableFilterByInfo AdditionalParametersType Hoteli.Soba.SearchPenthaus*/, IQueryable<Common.Queryable.Hoteli_Soba>> filterFunction =
+            (query,repository, parameter) =>
+      {
+          if(parameter.Not == true)
+          {
+            return query.Where(item => !item.NazivSobe.Contains(parameter.Pattern));
+          }
+            return query.Where(item => item.NazivSobe.Contains(parameter.Pattern));
+      };
+
+            /*ComposableFilterByInfo BeforeFilter Hoteli.Soba.SearchPenthaus*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Hoteli.Soba.SearchPenthaus*/);
+        }
+
+        public global::Hoteli.Soba[] Filter(SearchPenthausFilterBy filter_Parameter)
+        {
+            Func<Common.DomRepository, SearchPenthausFilterBy/*FilterByInfo AdditionalParametersType Hoteli.Soba.SearchPenthausFilterBy*/, Hoteli.Soba[]> filter_Function =
+                (repository, parameter) =>
+      {
+          var query = repository.Hoteli.Soba.Query();
+          if(parameter.Not == true)
+          {
+            return query.Where(item => !item.NazivSobe.Contains(parameter.Pattern)).ToSimple().ToArray();
+          }
+            return query.Where(item => item.NazivSobe.Contains(parameter.Pattern)).ToSimple().ToArray();
+      };
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Hoteli.Soba.SearchPenthausFilterBy*/);
+        }
+
+        public global::Hoteli.Soba[] Filter(SearchPenthaus filter_Parameter)
+        {
+            Func<Common.DomRepository, SearchPenthaus/*FilterByInfo AdditionalParametersType Hoteli.Soba.SearchPenthaus*/, Hoteli.Soba[]> filter_Function =
+                (repository, parameter) => repository.Hoteli.Soba.Filter(repository.Hoteli.Soba.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Hoteli.Soba.SearchPenthaus*/);
         }
 
         /*DataStructureInfo RepositoryMembers Hoteli.Soba*/
@@ -1539,6 +1651,88 @@ namespace Hoteli._Helper
         }
 
         /*DataStructureInfo RepositoryMembers Hoteli.Rezervacija*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Hoteli.RezervacijaGrid*/
+    public class RezervacijaGrid_Repository : /*DataStructureInfo OverrideBaseType Hoteli.RezervacijaGrid*/ Common.OrmRepositoryBase<Common.Queryable.Hoteli_RezervacijaGrid, Hoteli.RezervacijaGrid> // Common.QueryableRepositoryBase<Common.Queryable.Hoteli_RezervacijaGrid, Hoteli.RezervacijaGrid> // Common.ReadableRepositoryBase<Hoteli.RezervacijaGrid> // global::Common.RepositoryBase
+        /*DataStructureInfo RepositoryInterface Hoteli.RezervacijaGrid*/
+    {
+        /*DataStructureInfo RepositoryPrivateMembers Hoteli.RezervacijaGrid*/
+
+        public RezervacijaGrid_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext/*DataStructureInfo RepositoryConstructorArguments Hoteli.RezervacijaGrid*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            /*DataStructureInfo RepositoryConstructorCode Hoteli.RezervacijaGrid*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Hoteli.RezervacijaGrid[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Hoteli_RezervacijaGrid> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Hoteli.RezervacijaGrid*/
+            return Query(_domRepository.Hoteli.Rezervacija.Query());
+        }
+
+        public IQueryable<Common.Queryable.Hoteli_RezervacijaGrid> Query(IQueryable<Common.Queryable.Hoteli_Rezervacija> source)
+        {
+            return source.Select(item => new Common.Queryable.Hoteli_RezervacijaGrid
+                {
+                    ID = item.ID,
+                    Base = item,
+                    VrijemeOd = item.VrijemeOd,
+                    VrijemeDo = item.VrijemeDo,
+                    SobaNazivSobe = item.Soba.NazivSobe,
+                    /*BrowseDataStructureInfo BrowseProperties Hoteli.RezervacijaGrid*/
+                });
+        }
+
+        /*DataStructureInfo RepositoryMembers Hoteli.RezervacijaGrid*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Hoteli.HotelGrid*/
+    public class HotelGrid_Repository : /*DataStructureInfo OverrideBaseType Hoteli.HotelGrid*/ Common.OrmRepositoryBase<Common.Queryable.Hoteli_HotelGrid, Hoteli.HotelGrid> // Common.QueryableRepositoryBase<Common.Queryable.Hoteli_HotelGrid, Hoteli.HotelGrid> // Common.ReadableRepositoryBase<Hoteli.HotelGrid> // global::Common.RepositoryBase
+        /*DataStructureInfo RepositoryInterface Hoteli.HotelGrid*/
+    {
+        /*DataStructureInfo RepositoryPrivateMembers Hoteli.HotelGrid*/
+
+        public HotelGrid_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext/*DataStructureInfo RepositoryConstructorArguments Hoteli.HotelGrid*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            /*DataStructureInfo RepositoryConstructorCode Hoteli.HotelGrid*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Hoteli.HotelGrid[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Hoteli_HotelGrid> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Hoteli.HotelGrid*/
+            return Query(_domRepository.Hoteli.Soba.Query());
+        }
+
+        public IQueryable<Common.Queryable.Hoteli_HotelGrid> Query(IQueryable<Common.Queryable.Hoteli_Soba> source)
+        {
+            return source.Select(item => new Common.Queryable.Hoteli_HotelGrid
+                {
+                    ID = item.ID,
+                    Base = item,
+                    NazivSobe = item.NazivSobe,
+                    HotelNazivHotela = item.Hotel.NazivHotela,
+                    Extension_HotelRezervacijeZaSobuBrojRezervacija = item.Extension_HotelRezervacijeZaSobu.BrojRezervacija,
+                    /*BrowseDataStructureInfo BrowseProperties Hoteli.HotelGrid*/
+                });
+        }
+
+        /*DataStructureInfo RepositoryMembers Hoteli.HotelGrid*/
     }
 
     /*DataStructureInfo RepositoryAttributes Hoteli.GostRezervacija*/

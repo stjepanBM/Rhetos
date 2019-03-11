@@ -1,10 +1,38 @@
 Module Hoteli
-{
+{  
+//   Action CreateSobe 
+//   '(parameter, repository, userInfo) =>
+//             {
+//                 for(int i = 0; i < BrojSoba; i++)
+//                     {
+//                         var novaSoba = new Hoteli.Soba { BrojSoba = parameter.BrojSoba, Napomena = parameter.Napomena };
+//                         repository.Hoteli.Soba.Insert(novaSoba);
+//                     }
+
+//             }'
+//   {
+//       Integer BrojSoba;
+//       ShortString Napomena;
+//   }
+
+
   Entity  Hotel
   {
       ShortString NazivHotela { Required; }
       ShortString AdresaHotela { Required; }
   } 
+
+  SqlView HoteliView
+    "SELECT * FROM Hoteli.Hotel"
+  {
+    AutoDetectSqlDependencies;
+  }
+
+  SqlQueryable HotelInfo "SELECT * FROM Hoteli.HoteliView"
+  {
+    Extends Hoteli.Hotel;
+  }
+
 
   Entity TipSobe
   {
@@ -26,19 +54,50 @@ Module Hoteli
         s.ID
   " 
   {
-      Extends Hoteli.Hotel;
+      Extends Hoteli.Soba;
       Integer BrojRezervacija;
 
-      AutodetectSqlDependencies;
+      AutoDetectSqlDependencies;
   }
 
   Entity Soba
-  {
+  { 
       ShortString NazivSobe;
       Reference Hotel;
       Reference TipSobe;
-      Extends HotelRezervacijeZaSobu;
+      ComposableFilterBy SearchPenthaus '(query,repository, parameter) =>
+      {
+          if(parameter.Not == true)
+          {
+            return query.Where(item => !item.NazivSobe.Contains(parameter.Pattern));
+          }
+            return query.Where(item => item.NazivSobe.Contains(parameter.Pattern));
+      }';
+
+       FilterBy SearchPenthausFilterBy '(repository, parameter) =>
+      {
+          var query = repository.Hoteli.Soba.Query();
+          if(parameter.Not == true)
+          {
+            return query.Where(item => !item.NazivSobe.Contains(parameter.Pattern)).ToSimple().ToArray();
+          }
+            return query.Where(item => item.NazivSobe.Contains(parameter.Pattern)).ToSimple().ToArray();
+      }';
   }
+
+
+
+    Parameter SearchPenthausFilterBy
+    {
+        ShortString Pattern;
+        Bool Not;
+    }
+
+    Parameter SearchPenthaus
+    {
+        ShortString Pattern;
+        Bool Not;
+    }
   Entity Gost
   {
       Logging { Allproperties;}

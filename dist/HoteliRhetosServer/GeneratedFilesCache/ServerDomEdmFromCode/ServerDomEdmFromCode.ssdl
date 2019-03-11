@@ -213,6 +213,13 @@
           <Property Name="HotelID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_HotelID, Order: 0 }" Nullable="true" />
           <Property Name="TipSobeID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_TipSobeID, Order: 0 }" Nullable="true" />
         </EntityType>
+        <EntityType Name="Hoteli_HotelRezervacijeZaSobu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_ID, Order: 0 }" Nullable="false" />
+          <Property Name="BrojRezervacija" Type="int" Nullable="true" />
+        </EntityType>
         <EntityType Name="Hoteli_Hotel">
           <Key>
             <PropertyRef Name="ID" />
@@ -220,6 +227,12 @@
           <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="NazivHotela" Type="nvarchar(max)" Nullable="true" />
           <Property Name="AdresaHotela" Type="nvarchar(max)" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Hoteli_HotelInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_ID, Order: 0 }" Nullable="false" />
         </EntityType>
         <EntityType Name="Hoteli_TipSobe">
           <Key>
@@ -425,6 +438,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Hoteli_HotelRezervacijeZaSobu_Base">
+          <End Role="Hoteli_Soba" Type="Self.Hoteli_Soba" Multiplicity="1" />
+          <End Role="Hoteli_HotelRezervacijeZaSobu" Type="Self.Hoteli_HotelRezervacijeZaSobu" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Hoteli_Soba">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Hoteli_HotelRezervacijeZaSobu">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hoteli_HotelInfo_Base">
+          <End Role="Hoteli_Hotel" Type="Self.Hoteli_Hotel" Multiplicity="1" />
+          <End Role="Hoteli_HotelInfo" Type="Self.Hoteli_HotelInfo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Hoteli_Hotel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Hoteli_HotelInfo">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Hoteli_Soba_Hotel">
           <End Role="Hoteli_Hotel" Type="Self.Hoteli_Hotel" Multiplicity="0..1" />
           <End Role="Hoteli_Soba" Type="Self.Hoteli_Soba" Multiplicity="*" />
@@ -532,7 +569,9 @@
           <EntitySet Name="Hoteli_GostRezervacija" EntityType="Self.Hoteli_GostRezervacija" Schema="Hoteli" Table="GostRezervacija" />
           <EntitySet Name="Hoteli_Rezervacija" EntityType="Self.Hoteli_Rezervacija" Schema="Hoteli" Table="Rezervacija" />
           <EntitySet Name="Hoteli_Soba" EntityType="Self.Hoteli_Soba" Schema="Hoteli" Table="Soba" />
+          <EntitySet Name="Hoteli_HotelRezervacijeZaSobu" EntityType="Self.Hoteli_HotelRezervacijeZaSobu" Schema="Hoteli" Table="HotelRezervacijeZaSobu" />
           <EntitySet Name="Hoteli_Hotel" EntityType="Self.Hoteli_Hotel" Schema="Hoteli" Table="Hotel" />
+          <EntitySet Name="Hoteli_HotelInfo" EntityType="Self.Hoteli_HotelInfo" Schema="Hoteli" Table="HotelInfo" />
           <EntitySet Name="Hoteli_TipSobe" EntityType="Self.Hoteli_TipSobe" Schema="Hoteli" Table="TipSobe" />
           <EntitySet Name="Hoteli_Racun" EntityType="Self.Hoteli_Racun" Schema="Hoteli" Table="Racun" />
           <EntitySet Name="Hoteli_Stavka" EntityType="Self.Hoteli_Stavka" Schema="Hoteli" Table="Stavka" />
@@ -592,6 +631,14 @@
           <AssociationSet Name="Hoteli_GostRezervacija_Gost" Association="Self.Hoteli_GostRezervacija_Gost">
             <End Role="Hoteli_Gost" EntitySet="Hoteli_Gost" />
             <End Role="Hoteli_GostRezervacija" EntitySet="Hoteli_GostRezervacija" />
+          </AssociationSet>
+          <AssociationSet Name="Hoteli_HotelRezervacijeZaSobu_Base" Association="Self.Hoteli_HotelRezervacijeZaSobu_Base">
+            <End Role="Hoteli_Soba" EntitySet="Hoteli_Soba" />
+            <End Role="Hoteli_HotelRezervacijeZaSobu" EntitySet="Hoteli_HotelRezervacijeZaSobu" />
+          </AssociationSet>
+          <AssociationSet Name="Hoteli_HotelInfo_Base" Association="Self.Hoteli_HotelInfo_Base">
+            <End Role="Hoteli_Hotel" EntitySet="Hoteli_Hotel" />
+            <End Role="Hoteli_HotelInfo" EntitySet="Hoteli_HotelInfo" />
           </AssociationSet>
           <AssociationSet Name="Hoteli_Soba_Hotel" Association="Self.Hoteli_Soba_Hotel">
             <End Role="Hoteli_Hotel" EntitySet="Hoteli_Hotel" />

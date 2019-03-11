@@ -236,12 +236,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Hoteli_HotelRezervacijeZaSobu">
+            <EntityTypeMapping TypeName="Common.Hoteli_HotelRezervacijeZaSobu">
+              <MappingFragment StoreEntitySet="Hoteli_HotelRezervacijeZaSobu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BrojRezervacija" ColumnName="BrojRezervacija" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Hoteli_Hotel">
             <EntityTypeMapping TypeName="Common.Hoteli_Hotel">
               <MappingFragment StoreEntitySet="Hoteli_Hotel">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NazivHotela" ColumnName="NazivHotela" />
                 <ScalarProperty Name="AdresaHotela" ColumnName="AdresaHotela" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hoteli_HotelInfo">
+            <EntityTypeMapping TypeName="Common.Hoteli_HotelInfo">
+              <MappingFragment StoreEntitySet="Hoteli_HotelInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
