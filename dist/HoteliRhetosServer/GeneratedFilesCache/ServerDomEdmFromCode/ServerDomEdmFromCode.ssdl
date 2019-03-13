@@ -73,9 +73,9 @@
           <Property Name="ContextInfo" Type="nvarchar(max)" Nullable="true" />
           <Property Name="Action" Type="nvarchar(max)" Nullable="true" />
           <Property Name="TableName" Type="nvarchar(max)" Nullable="true" />
-          <Property Name="Created" Type="datetime" Nullable="true" />
           <Property Name="ItemId" Type="uniqueidentifier" Nullable="true" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Created" Type="datetime" Nullable="true" />
         </EntityType>
         <EntityType Name="Common_LogRelatedItem">
           <Key>
@@ -94,8 +94,8 @@
           <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="TableName" Type="nvarchar(max)" Nullable="true" />
           <Property Name="Relation" Type="nvarchar(max)" Nullable="true" />
-          <Property Name="LogID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_LogID, Order: 0 }" Nullable="true" />
           <Property Name="ItemId" Type="uniqueidentifier" Nullable="true" />
+          <Property Name="LogID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_LogID, Order: 0 }" Nullable="true" />
         </EntityType>
         <EntityType Name="Common_Principal">
           <Key>
@@ -142,9 +142,9 @@
           <Property Name="ContextInfo" Type="nvarchar(max)" Nullable="true" />
           <Property Name="Action" Type="nvarchar(max)" Nullable="true" />
           <Property Name="TableName" Type="nvarchar(max)" Nullable="true" />
-          <Property Name="Created" Type="datetime" Nullable="true" />
           <Property Name="ItemId" Type="uniqueidentifier" Nullable="true" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Created" Type="datetime" Nullable="true" />
         </EntityType>
         <EntityType Name="Common_RoleInheritsRole">
           <Key>
@@ -203,6 +203,7 @@
           <Property Name="VrijemeOd" Type="datetime" Nullable="true" />
           <Property Name="VrijemeDo" Type="datetime" Nullable="true" />
           <Property Name="SobaID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_SobaID, Order: 0 }" Nullable="true" />
+          <Property Name="VrijemeZadnjeIzmjene" Type="datetime" Nullable="true" />
         </EntityType>
         <EntityType Name="Hoteli_Soba">
           <Key>
@@ -212,6 +213,8 @@
           <Property Name="NazivSobe" Type="nvarchar(max)" Nullable="true" />
           <Property Name="HotelID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_HotelID, Order: 0 }" Nullable="true" />
           <Property Name="TipSobeID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_TipSobeID, Order: 0 }" Nullable="true" />
+          <Property Name="Naziv" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Oznaka" Type="nvarchar(max)" Nullable="true" />
         </EntityType>
         <EntityType Name="Hoteli_HotelRezervacijeZaSobu">
           <Key>

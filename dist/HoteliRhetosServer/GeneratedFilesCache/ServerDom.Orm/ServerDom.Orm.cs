@@ -101,63 +101,6 @@ namespace Common
 
         protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)
         {
-            modelBuilder.Ignore<global::Hoteli.Hotel>();
-            modelBuilder.Entity<Common.Queryable.Hoteli_Hotel>().Map(m => { m.MapInheritedProperties(); m.ToTable("Hotel", "Hoteli"); });
-            modelBuilder.Ignore<global::Hoteli.HotelInfo>();
-            modelBuilder.Entity<Common.Queryable.Hoteli_HotelInfo>().Map(m => { m.MapInheritedProperties(); m.ToTable("HotelInfo", "Hoteli"); });
-            modelBuilder.Entity<Common.Queryable.Hoteli_HotelInfo>().HasRequired(t => t.Base).WithOptional(t => t.Extension_HotelInfo);
-            modelBuilder.Ignore<global::Hoteli.TipSobe>();
-            modelBuilder.Entity<Common.Queryable.Hoteli_TipSobe>().Map(m => { m.MapInheritedProperties(); m.ToTable("TipSobe", "Hoteli"); });
-            modelBuilder.Entity<Common.Queryable.Hoteli_TipSobe>().Property(t => t.CijenaTipa).HasPrecision(28, 10);
-            modelBuilder.Ignore<global::Hoteli.HotelRezervacijeZaSobu>();
-            modelBuilder.Entity<Common.Queryable.Hoteli_HotelRezervacijeZaSobu>().Map(m => { m.MapInheritedProperties(); m.ToTable("HotelRezervacijeZaSobu", "Hoteli"); });
-            modelBuilder.Ignore<global::Hoteli.Soba>();
-            modelBuilder.Entity<Common.Queryable.Hoteli_Soba>().Map(m => { m.MapInheritedProperties(); m.ToTable("Soba", "Hoteli"); });
-            modelBuilder.Entity<Common.Queryable.Hoteli_HotelRezervacijeZaSobu>().HasRequired(t => t.Base).WithOptional(t => t.Extension_HotelRezervacijeZaSobu);
-            modelBuilder.Entity<Common.Queryable.Hoteli_Soba>()
-                .HasOptional(t => t.Hotel).WithMany()
-                .HasForeignKey(t => t.HotelID);
-            modelBuilder.Entity<Common.Queryable.Hoteli_Soba>()
-                .HasOptional(t => t.TipSobe).WithMany()
-                .HasForeignKey(t => t.TipSobeID);
-            modelBuilder.Ignore<global::Hoteli.Gost>();
-            modelBuilder.Entity<Common.Queryable.Hoteli_Gost>().Map(m => { m.MapInheritedProperties(); m.ToTable("Gost", "Hoteli"); });
-            modelBuilder.Ignore<global::Hoteli.GostPrijatelj>();
-            modelBuilder.Entity<Common.Queryable.Hoteli_GostPrijatelj>().Map(m => { m.MapInheritedProperties(); m.ToTable("GostPrijatelj", "Hoteli"); });
-            modelBuilder.Entity<Common.Queryable.Hoteli_GostPrijatelj>().HasRequired(t => t.Base).WithOptional(t => t.Extension_GostPrijatelj);
-            modelBuilder.Ignore<global::Hoteli.GostPoslovno>();
-            modelBuilder.Entity<Common.Queryable.Hoteli_GostPoslovno>().Map(m => { m.MapInheritedProperties(); m.ToTable("GostPoslovno", "Hoteli"); });
-            modelBuilder.Entity<Common.Queryable.Hoteli_GostPoslovno>().HasRequired(t => t.Base).WithOptional(t => t.Extension_GostPoslovno);
-            modelBuilder.Ignore<global::Hoteli.Rezervacija>();
-            modelBuilder.Entity<Common.Queryable.Hoteli_Rezervacija>().Map(m => { m.MapInheritedProperties(); m.ToTable("Rezervacija", "Hoteli"); });
-            modelBuilder.Entity<Common.Queryable.Hoteli_Rezervacija>()
-                .HasOptional(t => t.Soba).WithMany()
-                .HasForeignKey(t => t.SobaID);
-            modelBuilder.Ignore<global::Hoteli.GostRezervacija>();
-            modelBuilder.Entity<Common.Queryable.Hoteli_GostRezervacija>().Map(m => { m.MapInheritedProperties(); m.ToTable("GostRezervacija", "Hoteli"); });
-            modelBuilder.Entity<Common.Queryable.Hoteli_GostRezervacija>()
-                .HasOptional(t => t.Rezervacija).WithMany()
-                .HasForeignKey(t => t.RezervacijaID);
-            modelBuilder.Entity<Common.Queryable.Hoteli_GostRezervacija>()
-                .HasOptional(t => t.Gost).WithMany()
-                .HasForeignKey(t => t.GostID);
-            modelBuilder.Ignore<global::Hoteli.Racun>();
-            modelBuilder.Entity<Common.Queryable.Hoteli_Racun>().Map(m => { m.MapInheritedProperties(); m.ToTable("Racun", "Hoteli"); });
-            modelBuilder.Entity<Common.Queryable.Hoteli_Racun>().Property(t => t.Iznos).HasPrecision(28, 10);
-            modelBuilder.Entity<Common.Queryable.Hoteli_Racun>()
-                .HasOptional(t => t.Rezervacija).WithMany()
-                .HasForeignKey(t => t.RezervacijaID);
-            modelBuilder.Ignore<global::Hoteli.Usluga>();
-            modelBuilder.Entity<Common.Queryable.Hoteli_Usluga>().Map(m => { m.MapInheritedProperties(); m.ToTable("Usluga", "Hoteli"); });
-            modelBuilder.Entity<Common.Queryable.Hoteli_Usluga>().Property(t => t.CijenaUsluge).HasPrecision(28, 10);
-            modelBuilder.Ignore<global::Hoteli.Stavka>();
-            modelBuilder.Entity<Common.Queryable.Hoteli_Stavka>().Map(m => { m.MapInheritedProperties(); m.ToTable("Stavka", "Hoteli"); });
-            modelBuilder.Entity<Common.Queryable.Hoteli_Stavka>()
-                .HasOptional(t => t.Usluga).WithMany()
-                .HasForeignKey(t => t.UslugaID);
-            modelBuilder.Entity<Common.Queryable.Hoteli_Stavka>()
-                .HasOptional(t => t.Racun).WithMany()
-                .HasForeignKey(t => t.RacunID);
             modelBuilder.Ignore<global::Common.AutoCodeCache>();
             modelBuilder.Entity<Common.Queryable.Common_AutoCodeCache>().Map(m => { m.MapInheritedProperties(); m.ToTable("AutoCodeCache", "Common"); });
             modelBuilder.Ignore<global::Common.FilterId>();
@@ -220,6 +163,63 @@ namespace Common
             modelBuilder.Entity<Common.Queryable.Common_RolePermission>()
                 .HasOptional(t => t.Claim).WithMany()
                 .HasForeignKey(t => t.ClaimID);
+            modelBuilder.Ignore<global::Hoteli.Hotel>();
+            modelBuilder.Entity<Common.Queryable.Hoteli_Hotel>().Map(m => { m.MapInheritedProperties(); m.ToTable("Hotel", "Hoteli"); });
+            modelBuilder.Ignore<global::Hoteli.HotelInfo>();
+            modelBuilder.Entity<Common.Queryable.Hoteli_HotelInfo>().Map(m => { m.MapInheritedProperties(); m.ToTable("HotelInfo", "Hoteli"); });
+            modelBuilder.Entity<Common.Queryable.Hoteli_HotelInfo>().HasRequired(t => t.Base).WithOptional(t => t.Extension_HotelInfo);
+            modelBuilder.Ignore<global::Hoteli.TipSobe>();
+            modelBuilder.Entity<Common.Queryable.Hoteli_TipSobe>().Map(m => { m.MapInheritedProperties(); m.ToTable("TipSobe", "Hoteli"); });
+            modelBuilder.Entity<Common.Queryable.Hoteli_TipSobe>().Property(t => t.CijenaTipa).HasPrecision(28, 10);
+            modelBuilder.Ignore<global::Hoteli.HotelRezervacijeZaSobu>();
+            modelBuilder.Entity<Common.Queryable.Hoteli_HotelRezervacijeZaSobu>().Map(m => { m.MapInheritedProperties(); m.ToTable("HotelRezervacijeZaSobu", "Hoteli"); });
+            modelBuilder.Ignore<global::Hoteli.Soba>();
+            modelBuilder.Entity<Common.Queryable.Hoteli_Soba>().Map(m => { m.MapInheritedProperties(); m.ToTable("Soba", "Hoteli"); });
+            modelBuilder.Entity<Common.Queryable.Hoteli_HotelRezervacijeZaSobu>().HasRequired(t => t.Base).WithOptional(t => t.Extension_HotelRezervacijeZaSobu);
+            modelBuilder.Entity<Common.Queryable.Hoteli_Soba>()
+                .HasOptional(t => t.Hotel).WithMany()
+                .HasForeignKey(t => t.HotelID);
+            modelBuilder.Entity<Common.Queryable.Hoteli_Soba>()
+                .HasOptional(t => t.TipSobe).WithMany()
+                .HasForeignKey(t => t.TipSobeID);
+            modelBuilder.Ignore<global::Hoteli.Gost>();
+            modelBuilder.Entity<Common.Queryable.Hoteli_Gost>().Map(m => { m.MapInheritedProperties(); m.ToTable("Gost", "Hoteli"); });
+            modelBuilder.Ignore<global::Hoteli.GostPrijatelj>();
+            modelBuilder.Entity<Common.Queryable.Hoteli_GostPrijatelj>().Map(m => { m.MapInheritedProperties(); m.ToTable("GostPrijatelj", "Hoteli"); });
+            modelBuilder.Entity<Common.Queryable.Hoteli_GostPrijatelj>().HasRequired(t => t.Base).WithOptional(t => t.Extension_GostPrijatelj);
+            modelBuilder.Ignore<global::Hoteli.GostPoslovno>();
+            modelBuilder.Entity<Common.Queryable.Hoteli_GostPoslovno>().Map(m => { m.MapInheritedProperties(); m.ToTable("GostPoslovno", "Hoteli"); });
+            modelBuilder.Entity<Common.Queryable.Hoteli_GostPoslovno>().HasRequired(t => t.Base).WithOptional(t => t.Extension_GostPoslovno);
+            modelBuilder.Ignore<global::Hoteli.Rezervacija>();
+            modelBuilder.Entity<Common.Queryable.Hoteli_Rezervacija>().Map(m => { m.MapInheritedProperties(); m.ToTable("Rezervacija", "Hoteli"); });
+            modelBuilder.Entity<Common.Queryable.Hoteli_Rezervacija>()
+                .HasOptional(t => t.Soba).WithMany()
+                .HasForeignKey(t => t.SobaID);
+            modelBuilder.Ignore<global::Hoteli.GostRezervacija>();
+            modelBuilder.Entity<Common.Queryable.Hoteli_GostRezervacija>().Map(m => { m.MapInheritedProperties(); m.ToTable("GostRezervacija", "Hoteli"); });
+            modelBuilder.Entity<Common.Queryable.Hoteli_GostRezervacija>()
+                .HasOptional(t => t.Rezervacija).WithMany()
+                .HasForeignKey(t => t.RezervacijaID);
+            modelBuilder.Entity<Common.Queryable.Hoteli_GostRezervacija>()
+                .HasOptional(t => t.Gost).WithMany()
+                .HasForeignKey(t => t.GostID);
+            modelBuilder.Ignore<global::Hoteli.Racun>();
+            modelBuilder.Entity<Common.Queryable.Hoteli_Racun>().Map(m => { m.MapInheritedProperties(); m.ToTable("Racun", "Hoteli"); });
+            modelBuilder.Entity<Common.Queryable.Hoteli_Racun>().Property(t => t.Iznos).HasPrecision(28, 10);
+            modelBuilder.Entity<Common.Queryable.Hoteli_Racun>()
+                .HasOptional(t => t.Rezervacija).WithMany()
+                .HasForeignKey(t => t.RezervacijaID);
+            modelBuilder.Ignore<global::Hoteli.Usluga>();
+            modelBuilder.Entity<Common.Queryable.Hoteli_Usluga>().Map(m => { m.MapInheritedProperties(); m.ToTable("Usluga", "Hoteli"); });
+            modelBuilder.Entity<Common.Queryable.Hoteli_Usluga>().Property(t => t.CijenaUsluge).HasPrecision(28, 10);
+            modelBuilder.Ignore<global::Hoteli.Stavka>();
+            modelBuilder.Entity<Common.Queryable.Hoteli_Stavka>().Map(m => { m.MapInheritedProperties(); m.ToTable("Stavka", "Hoteli"); });
+            modelBuilder.Entity<Common.Queryable.Hoteli_Stavka>()
+                .HasOptional(t => t.Usluga).WithMany()
+                .HasForeignKey(t => t.UslugaID);
+            modelBuilder.Entity<Common.Queryable.Hoteli_Stavka>()
+                .HasOptional(t => t.Racun).WithMany()
+                .HasForeignKey(t => t.RacunID);
             modelBuilder.Entity<Common.Queryable.Common_LogRelatedItemReader>()
                 .HasOptional(t => t.Log).WithMany()
                 .HasForeignKey(t => t.LogID);
@@ -229,19 +229,6 @@ namespace Common
             /*EntityFrameworkOnModelCreating*/
         }
 
-        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_Hotel> Hoteli_Hotel { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_HotelInfo> Hoteli_HotelInfo { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_TipSobe> Hoteli_TipSobe { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_HotelRezervacijeZaSobu> Hoteli_HotelRezervacijeZaSobu { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_Soba> Hoteli_Soba { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_Gost> Hoteli_Gost { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_GostPrijatelj> Hoteli_GostPrijatelj { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_GostPoslovno> Hoteli_GostPoslovno { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_Rezervacija> Hoteli_Rezervacija { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_GostRezervacija> Hoteli_GostRezervacija { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_Racun> Hoteli_Racun { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_Usluga> Hoteli_Usluga { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_Stavka> Hoteli_Stavka { get; set; }
         public System.Data.Entity.DbSet<Common.Queryable.Common_AutoCodeCache> Common_AutoCodeCache { get; set; }
         public System.Data.Entity.DbSet<Common.Queryable.Common_FilterId> Common_FilterId { get; set; }
         public System.Data.Entity.DbSet<Common.Queryable.Common_KeepSynchronizedMetadata> Common_KeepSynchronizedMetadata { get; set; }
@@ -258,6 +245,19 @@ namespace Common
         public System.Data.Entity.DbSet<Common.Queryable.Common_RoleInheritsRole> Common_RoleInheritsRole { get; set; }
         public System.Data.Entity.DbSet<Common.Queryable.Common_PrincipalPermission> Common_PrincipalPermission { get; set; }
         public System.Data.Entity.DbSet<Common.Queryable.Common_RolePermission> Common_RolePermission { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_Hotel> Hoteli_Hotel { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_HotelInfo> Hoteli_HotelInfo { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_TipSobe> Hoteli_TipSobe { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_HotelRezervacijeZaSobu> Hoteli_HotelRezervacijeZaSobu { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_Soba> Hoteli_Soba { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_Gost> Hoteli_Gost { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_GostPrijatelj> Hoteli_GostPrijatelj { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_GostPoslovno> Hoteli_GostPoslovno { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_Rezervacija> Hoteli_Rezervacija { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_GostRezervacija> Hoteli_GostRezervacija { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_Racun> Hoteli_Racun { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_Usluga> Hoteli_Usluga { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Hoteli_Stavka> Hoteli_Stavka { get; set; }
         /*EntityFrameworkContextMembers*/
     }
 

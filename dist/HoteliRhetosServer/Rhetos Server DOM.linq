@@ -82,7 +82,6 @@ void Main()
 				
 		repository.Hoteli.Soba.Query(filterParameter).Dump(1);
 
-		
 
 	}
 }

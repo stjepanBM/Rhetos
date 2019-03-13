@@ -18,6 +18,7 @@ Module Hoteli
 
   Entity  Hotel
   {
+      ShortString Manager;
       ShortString NazivHotela { Required; }
       ShortString AdresaHotela { Required; }
   } 
@@ -62,6 +63,8 @@ Module Hoteli
 
   Entity Soba
   { 
+      Sifarnik;
+      
       ShortString NazivSobe;
       Reference Hotel;
       Reference TipSobe;
@@ -125,13 +128,26 @@ Module Hoteli
       Datetime VrijemeDo;
       Reference Soba;
 
+      DateTime VrijemeZadnjeIzmjene;
+
       ItemFilter VrijemeOdPrijeVrijemeDo 'item => item.VrijemeOd != null && item.VrijemeDo.Value < item.VrijemeOd.Value';
 
       Logging
       {
           Log Hoteli.Rezervacija.Soba;
       }
+  
+      SaveMethod
+      {
+        Initialization PostaviVrijemeZadnjeizmjene
+          '{
+              //var now = SqlUtility.GetDatabaseTime(_executionContext.SqlExecuter); 
+            foreach(var newitem in insertedNew.Concat(updatedNew))
+                newitem.VrijemeZadnjeIzmjene = DateTime.Now; 
+           }';
+      }
   }
+
   Browse RezervacijaGrid Hoteli.Rezervacija
   {
       Take VrijemeOd;

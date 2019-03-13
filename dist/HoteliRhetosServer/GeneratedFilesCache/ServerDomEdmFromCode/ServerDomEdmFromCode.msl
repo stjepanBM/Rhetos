@@ -79,9 +79,9 @@
                 <ScalarProperty Name="ContextInfo" ColumnName="ContextInfo" />
                 <ScalarProperty Name="Action" ColumnName="Action" />
                 <ScalarProperty Name="TableName" ColumnName="TableName" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -102,8 +102,8 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="TableName" ColumnName="TableName" />
                 <ScalarProperty Name="Relation" ColumnName="Relation" />
-                <ScalarProperty Name="LogID" ColumnName="LogID" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -155,9 +155,9 @@
                 <ScalarProperty Name="ContextInfo" ColumnName="ContextInfo" />
                 <ScalarProperty Name="Action" ColumnName="Action" />
                 <ScalarProperty Name="TableName" ColumnName="TableName" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -223,6 +223,7 @@
                 <ScalarProperty Name="VrijemeOd" ColumnName="VrijemeOd" />
                 <ScalarProperty Name="VrijemeDo" ColumnName="VrijemeDo" />
                 <ScalarProperty Name="SobaID" ColumnName="SobaID" />
+                <ScalarProperty Name="VrijemeZadnjeIzmjene" ColumnName="VrijemeZadnjeIzmjene" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -233,6 +234,8 @@
                 <ScalarProperty Name="NazivSobe" ColumnName="NazivSobe" />
                 <ScalarProperty Name="HotelID" ColumnName="HotelID" />
                 <ScalarProperty Name="TipSobeID" ColumnName="TipSobeID" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Oznaka" ColumnName="Oznaka" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

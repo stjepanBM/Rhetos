@@ -73,9 +73,9 @@
           <Property Name="ContextInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Action" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TableName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="DateTime" />
           <Property Name="ItemId" Type="Guid" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" />
         </EntityType>
         <EntityType Name="Common_LogRelatedItem" customannotation:ClrType="Common.Queryable.Common_LogRelatedItem, ServerDom.Model, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
           <Key>
@@ -95,8 +95,8 @@
           <Property Name="ID" Type="Guid" Nullable="false" />
           <Property Name="TableName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Relation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="LogID" Type="Guid" />
           <Property Name="ItemId" Type="Guid" />
+          <Property Name="LogID" Type="Guid" />
           <NavigationProperty Name="Log" Relationship="Self.Common_LogRelatedItemReader_Log" FromRole="Common_LogRelatedItemReader_Log_Source" ToRole="Common_LogRelatedItemReader_Log_Target" />
         </EntityType>
         <EntityType Name="Common_Principal" customannotation:ClrType="Common.Queryable.Common_Principal, ServerDom.Model, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
@@ -148,9 +148,9 @@
           <Property Name="ContextInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Action" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TableName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="DateTime" />
           <Property Name="ItemId" Type="Guid" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" />
           <NavigationProperty Name="Log" Relationship="Self.Common_RelatedEventsSource_Log" FromRole="Common_RelatedEventsSource_Log_Source" ToRole="Common_RelatedEventsSource_Log_Target" />
         </EntityType>
         <EntityType Name="Common_RoleInheritsRole" customannotation:ClrType="Common.Queryable.Common_RoleInheritsRole, ServerDom.Model, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
@@ -220,6 +220,7 @@
           <Property Name="VrijemeOd" Type="DateTime" />
           <Property Name="VrijemeDo" Type="DateTime" />
           <Property Name="SobaID" Type="Guid" />
+          <Property Name="VrijemeZadnjeIzmjene" Type="DateTime" />
           <NavigationProperty Name="Soba" Relationship="Self.Hoteli_Rezervacija_Soba" FromRole="Hoteli_Rezervacija_Soba_Source" ToRole="Hoteli_Rezervacija_Soba_Target" />
         </EntityType>
         <EntityType Name="Hoteli_Soba" customannotation:ClrType="Common.Queryable.Hoteli_Soba, ServerDom.Model, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
@@ -230,6 +231,8 @@
           <Property Name="NazivSobe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="HotelID" Type="Guid" />
           <Property Name="TipSobeID" Type="Guid" />
+          <Property Name="Naziv" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Oznaka" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Extension_HotelRezervacijeZaSobu" Relationship="Self.Hoteli_HotelRezervacijeZaSobu_Base" FromRole="Hoteli_HotelRezervacijeZaSobu_Base_Target" ToRole="Hoteli_HotelRezervacijeZaSobu_Base_Source" />
           <NavigationProperty Name="Hotel" Relationship="Self.Hoteli_Soba_Hotel" FromRole="Hoteli_Soba_Hotel_Source" ToRole="Hoteli_Soba_Hotel_Target" />
           <NavigationProperty Name="TipSobe" Relationship="Self.Hoteli_Soba_TipSobe" FromRole="Hoteli_Soba_TipSobe_Source" ToRole="Hoteli_Soba_TipSobe_Target" />
