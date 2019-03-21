@@ -622,11 +622,14 @@ namespace Hoteli
             return new Common.Queryable.Hoteli_Hotel
             {
                 ID = item.ID,
+                Manager = item.Manager,
                 NazivHotela = item.NazivHotela,
                 AdresaHotela = item.AdresaHotela/*DataStructureInfo AssignSimpleProperty Hoteli.Hotel*/
             };
         }
 
+        [DataMember]/*PropertyInfo Attribute Hoteli.Hotel.Manager*/
+        public string Manager { get; set; }
         [DataMember]/*PropertyInfo Attribute Hoteli.Hotel.NazivHotela*/
         public string NazivHotela { get; set; }
         [DataMember]/*PropertyInfo Attribute Hoteli.Hotel.AdresaHotela*/
@@ -1762,6 +1765,7 @@ namespace Common.Queryable
             return new Hoteli.Hotel
             {
                 ID = item.ID,
+                Manager = item.Manager,
                 NazivHotela = item.NazivHotela,
                 AdresaHotela = item.AdresaHotela/*DataStructureInfo AssignSimpleProperty Hoteli.Hotel*/
             };
@@ -2734,6 +2738,7 @@ namespace Rhetos.Dom.DefaultConcepts
             return query.Select(item => new Hoteli.Hotel
             {
                 ID = item.ID,
+                Manager = item.Manager,
                 NazivHotela = item.NazivHotela,
                 AdresaHotela = item.AdresaHotela/*DataStructureInfo AssignSimpleProperty Hoteli.Hotel*/
             });

@@ -228,6 +228,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Manager" Type="nvarchar(max)" Nullable="true" />
           <Property Name="NazivHotela" Type="nvarchar(max)" Nullable="true" />
           <Property Name="AdresaHotela" Type="nvarchar(max)" Nullable="true" />
         </EntityType>

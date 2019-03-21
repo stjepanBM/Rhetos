@@ -3597,3 +3597,47 @@ Info:
 2019-03-13 14:46:55.7072|TRACE|DeployPackages|Initialization ClaimGenerator.
 2019-03-13 14:46:55.8765|TRACE|DeployPackages|Updated Web.config modification date to restart server.
 2019-03-13 14:46:55.8765|TRACE|DeployPackages|Done.
+2019-03-14 12:02:18.2347|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-14 12:02:18.3478|TRACE|DeployPackages|Getting packages.
+2019-03-14 12:02:18.3648|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-14 12:02:20.4384|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-14 12:02:20.6720|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-14 12:02:20.6970|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-14 12:02:21.0770|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-14 12:02:21.0909|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-14 12:02:21.0909|TRACE|PackageDownloader|Reading package Hoteli from unpacked source folder with metadata Hoteli.nuspec.
+2019-03-14 12:02:21.0909|TRACE|DeployPackages|Reading Hoteli from source.
+2019-03-14 12:02:21.1878|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Hoteli\dist\HoteliRhetosServer.
+2019-03-14 12:02:21.1878|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-14 12:02:21.1878|TRACE|Packages|Hoteli 1.0.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\src.
+2019-03-14 12:02:21.1878|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Hoteli\dist\HoteliRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-14 12:02:21.3226|TRACE|DeployPackages|Loading plugins.
+2019-03-14 12:02:22.0424|TRACE|DeployPackages|SQL connection: DataSource=SBMATIC-PC\MATIC, InitialCatalog=Hoteli
+2019-03-14 12:02:22.0843|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-14 12:02:22.2141|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-14 12:02:22.4927|TRACE|DeployPackages|Application model has 695 statements.
+2019-03-14 12:02:22.4927|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-14 12:02:22.7237|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Model.dll.
+2019-03-14 12:02:22.7487|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Orm.dll.
+2019-03-14 12:02:22.7916|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Repositories.dll.
+2019-03-14 12:02:22.8235|TRACE|DeployPackages|Generated 201 types.
+2019-03-14 12:02:22.8235|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-03-14 12:02:22.8455|TRACE|DeployPackages|Executing RestGenerator.
+2019-03-14 12:02:22.8894|TRACE|AssemblyGenerator|Restoring assembly from cache: RestService.dll.
+2019-03-14 12:02:22.9144|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-03-14 12:02:22.9414|TRACE|DeployPackages|Cleaning old migration data.
+2019-03-14 12:02:22.9783|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 9 remaining.
+2019-03-14 12:02:22.9813|TRACE|DeployPackages|Executing data migration scripts.
+2019-03-14 12:02:23.0102|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-03-14 12:02:23.0102|TRACE|DeployPackages|Upgrading database.
+2019-03-14 12:02:23.1660|TRACE|DeployPackages|DatabaseGenerator removing 0 concept applications.
+2019-03-14 12:02:23.1660|TRACE|DeployPackages|DatabaseGenerator creating 0 concept applications.
+2019-03-14 12:02:23.1820|TRACE|DeployPackages|Deleting redundant migration data.
+2019-03-14 12:02:23.1820|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 9 remaining.
+2019-03-14 12:02:23.1820|TRACE|DeployPackages|Uploading DSL scripts.
+2019-03-14 12:02:23.2009|TRACE|DeployPackages|Uploaded 7 DSL scripts to database.
+2019-03-14 12:02:23.2009|TRACE|DeployPackages|Loading generated plugins.
+2019-03-14 12:02:23.3238|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-03-14 12:02:25.2118|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-03-14 12:02:25.3825|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-03-14 12:02:25.3825|TRACE|DeployPackages|Done.

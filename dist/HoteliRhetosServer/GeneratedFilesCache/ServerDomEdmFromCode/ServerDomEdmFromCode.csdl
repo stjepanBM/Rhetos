@@ -250,6 +250,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Manager" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NazivHotela" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AdresaHotela" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Extension_HotelInfo" Relationship="Self.Hoteli_HotelInfo_Base" FromRole="Hoteli_HotelInfo_Base_Target" ToRole="Hoteli_HotelInfo_Base_Source" />

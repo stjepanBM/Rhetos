@@ -251,6 +251,7 @@
             <EntityTypeMapping TypeName="Common.Hoteli_Hotel">
               <MappingFragment StoreEntitySet="Hoteli_Hotel">
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Manager" ColumnName="Manager" />
                 <ScalarProperty Name="NazivHotela" ColumnName="NazivHotela" />
                 <ScalarProperty Name="AdresaHotela" ColumnName="AdresaHotela" />
               </MappingFragment>

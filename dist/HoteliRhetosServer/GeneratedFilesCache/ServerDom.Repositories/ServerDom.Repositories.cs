@@ -3616,6 +3616,15 @@ namespace Hoteli._Helper
             /*DataStructureInfo WritableOrm ClearContext Hoteli.Hotel*/
 
             {
+                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Manager != null && newItem.Manager.Length > 256).FirstOrDefault();
+                if (invalidItem != null)
+                    throw new Rhetos.UserException(
+                        "Maximum length of property {0} is {1}.",
+                        new[] { "Hotel.Manager", "256" },
+                        "DataStructure:Hoteli.Hotel,ID:" + invalidItem.ID.ToString() + ",Property:Manager",
+                        null);
+            }
+            {
                 var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.NazivHotela != null && newItem.NazivHotela.Length > 256).FirstOrDefault();
                 if (invalidItem != null)
                     throw new Rhetos.UserException(

@@ -186,5 +186,6 @@ Module Hoteli
       ShortString NazivStavke;
       Reference Usluga;
       Reference Racun;
+
   }
 }
